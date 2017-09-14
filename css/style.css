@@ -20,9 +20,9 @@ p {
 }
 
 .parallax-container {
-  min-height: 94vh;
+  min-height: 768px;
+  height: 94vh;
   line-height: 0;
-  height: auto;
   color: rgba(255,255,255,.9);
 }
   .parallax-container .section {
@@ -62,8 +62,70 @@ footer.page-footer {
 
 .brand-logo {
   padding: 0 !important;
-  margin: -38px 0 0;
+  margin: -40px 0 0;
   width: 202px; 
+}
+
+.video-background {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  -webkit-filter: brightness(25%);  
+}
+
+.header-background {
+  width: 100%;
+  height: 94vh;
+  min-height: 768px;
+}
+
+/* .header-background video {
+  width: 100%;
+  height: auto;
+} */
+
+.slide-wrapper, .slider {
+  height: 660px !important;
+}
+
+.controls {
+  z-index: 100;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.24);
+}
+
+.controls i {
+  color: #fff;
+  font-size: 3em;
+}
+
+.controls i:hover {
+  cursor: pointer;
+}
+
+.right-control {
+  right: 0;
+}
+
+.clip-path-left {
+  clip-path: polygon(0% 0%, 30% 100%, 100% 100%, 100% 0%);
+  left: 30%;
+}
+
+.clip-path-right {
+  clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 70% 0%);
+}
+
+._container {
+  width: 100%;
+  position: relative;
+  right: 0%;
+}
+
+.banner-slider {
+  width: 68.5%;
+  margin-left: -28%;
+
 }
 
 /* helpers */
@@ -73,6 +135,153 @@ footer.page-footer {
   }
 }
 
+.ml-4-neg {
+  margin-left: -4px !important;
+}
+
+.pb-72 {
+  padding:0 0 72px !important;
+}
+
+.m-tb-16 {
+  margin: 16px 0 !important;
+}
+
 .p-tb-32 {
   padding: 32px 0 !important;
+}
+
+.p-tb-72 {
+  padding: 72px 0 !important;
+}
+
+.p-0 {
+  padding: 0 !important;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+[draggable=true] {
+  cursor: move;
+}
+
+/* car thing */ 
+
+.running-car {
+	width: 742px;
+	position: relative;
+	top: 0;
+	left: 0;
+}
+
+img.car,
+img.wheel {
+	-webkit-transition: all 1.2s ease-out;
+	-moz-transition: all 1.2s ease-out;
+	transition: all 1.2s ease-out;
+	margin-left: -360px;
+}
+
+img.wheel {
+  position: absolute;
+  width: 140px;
+  left: 401px;
+  bottom: 47px;
+  z-index: 1;
+}
+
+.running-car.in-view img.car {
+	-webkit-transform: translate(285px, 0px) rotate(0deg);
+	-moz-transform: translate(285px, 0px) rotate(0deg);
+	transform: translate(285px, 0px) rotate(0deg);
+}
+
+.running-car.in-view img.wheel {
+	-webkit-transform: translate(285px, 0px) rotate(600deg);
+	-moz-transform: translate(285px, 0px) rotate(600deg);
+	transform: translate(285px, 0px) rotate(600deg);
+}
+
+.device-xs .running-car.in-view img.car {
+	-webkit-transform: translate(500px, 0px) rotate(0deg);
+	-moz-transform: translate(500px, 0px) rotate(0deg);
+	transform: translate(500px, 0px) rotate(0deg);
+}
+
+.device-xs .running-car.in-view img.wheel {
+	-webkit-transform: translate(500px, 0px) rotate(600deg);
+	-moz-transform: translate(500px, 0px) rotate(600deg);
+	transform: translate(500px, 0px) rotate(600deg);
+}
+
+.device-xxs .running-car.in-view img.car {
+	-webkit-transform: translate(350px, 0px) rotate(0deg);
+	-moz-transform: translate(350px, 0px) rotate(0deg);
+	transform: top translate(350px, 0px) rotate(0deg);
+}
+
+.device-xxs .running-car.in-view img.wheel {
+	-webkit-transform: translate(350px, 0px) rotate(600deg);
+	-moz-transform: translate(350px, 0px) rotate(600deg);
+	transform: translate(350px, 0px) rotate(600deg);
+}
+
+img.truck,
+img.wheel-truck {
+	-webkit-transition: all 1.2s ease-out;
+	-moz-transition: all 1.2s ease-out;
+	transition: all 1.2s ease-out;
+	margin-left: 400px;
+	margin-top: -120px;
+}
+
+img.wheel-truck {
+	position: absolute;
+	left: 78px;
+	width: 84px;
+	bottom: 38px;
+	z-index: 1;
+}
+
+.running-car.in-view img.truck {
+	-webkit-transform: translate(-450px, 0px) rotate(0deg);
+	-moz-transform: translate(-450px, 0px) rotate(0deg);
+	transform: translate(-450px, 0px) rotate(0deg);
+}
+
+.running-car.in-view img.wheel-truck {
+	-webkit-transform: translate(-450px, 0px) rotate(-600deg);
+	-moz-transform: translate(-450px, 0px) rotate(-600deg);
+	transform: translate(-450px, 0px) rotate(-600deg);
+}
+
+.device-xs .running-car.in-view img.truck {
+	-webkit-transform: translate(-300px, 0px) rotate(0deg);
+	-moz-transform: translate(-300px, 0px) rotate(0deg);
+	transform: translate(-300px, 0px) rotate(0deg);
+}
+
+.device-xs .running-car.in-view img.wheel-truck {
+	-webkit-transform: translate(-290px, 0px) rotate(-600deg);
+	-moz-transform: translate(-290px, 0px) rotate(-600deg);
+	transform: translate(-290px, 0px) rotate(-600deg);
+}
+
+.device-xxs .running-car.in-view img.truck {
+	-webkit-transform: translate(-350px, 0px) rotate(0deg);
+	-moz-transform: translate(-350px, 0px) rotate(0deg);
+	transform: translate(-350px, 0px) rotate(0deg);
+}
+
+.device-xxs .running-car.in-view img.wheel-truck {
+	-webkit-transform: translate(-340px, 0px) rotate(-600deg);
+	-moz-transform: translate(-340px, 0px) rotate(-600deg);
+	transform: translate(-340px, 0px) rotate(-600deg);
 }

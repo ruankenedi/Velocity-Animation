@@ -15,13 +15,14 @@
     <nav class="white">
       <div class="nav-wrapper container">
         <a href="#!" class="brand-logo"><img src="images/logo.svg" alt="SatTrack Rastreamento e Logística"></a>
+        <a href="#" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
           <li><a href="#home">Início</a></li>
           <li><a href="sass.html">Serviços</a></li>
           <li><a href="badges.html">Sobre</a></li>
           <li><a href="collapsible.html">Contato</a></li>
-          <li class="teal accent-4"><a class="white-text" href="mobile.html">Localizar veículo</a></li>
-          <li class="blue darken-4"><a class="white-text" href="mobile.html">Telemetria</a></li>
+          <li class=""><a class="teal accent-4 btn waves-effect waves-light white-text" href="mobile.html">Localizar veículo</a></li>
+          <li class=""><a class="blue darken-4 btn waves-effect waves-light white-text ml-4-neg" href="mobile.html">Telemetria</a></li>
         </ul>
         <ul class="side-nav" id="mobile">
           <li><a href="sass.html">Início</a></li>
@@ -31,15 +32,14 @@
           <li class="teal accent-4"><a class="white-text" href="mobile.html">Localizar veículo</a></li>
           <li class="blue darken-4"><a class="white-text" href="mobile.html">Telemetria</a></li>
         </ul>
-        <a href="#" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
       </div>
     </nav>
   </div>
 
   <div id="index-banner" class="parallax-container">
-    <div class="section">
+    <div class="section pb-72">
       <div class="container">
-        <h1 class="header center white-text light">Nunca foi tão simples proteger seu veículo.</h1>
+        <h2 class="header center white-text light">Nunca foi tão simples proteger seu veículo.</h2>
         <div class="row center">
           <h5 class="header col s12 light">Oferecemos soluções incríveis de rastreamento e logística.</h5>
         </div>
@@ -49,30 +49,62 @@
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="images/5.jpg" alt="Unsplashed background img 1"></div>
+    <div class="header-background parallax">
+      <video class="video-background" autoplay loop muted src="images/video.mp4" type="video/mp4" alt="Unsplashed background img 1"></video>
+    </div>
   </div>
 
-  <div class="">
-    <section class="">
-        <div class="carousel carousel-slider center" data-indicators="true">
-            <div class="carousel-item blue darken-4 white-text" href="#one!">
-              <h2>First Panel</h2>
-              <p class="white-text">This is your first panel</p>
-            </div>
-            <div class="carousel-item amber white-text" href="#two!">
-              <h2>Second Panel</h2>
-              <p class="white-text">This is your second panel</p>
-            </div>
-            <div class="carousel-item green white-text" href="#three!">
-              <h2>Third Panel</h2>
-              <p class="white-text">This is your third panel</p>
-            </div>
-            <div class="carousel-item blue white-text" href="#four!">
-              <h2>Fourth Panel</h2>
-              <p class="white-text">This is your fourth panel</p>
-            </div>
-          </div>
-    </section>
+  <h2 class="light center p-tb-32">Para você</h2>
+  <div class="_container flex">
+      <div class="running-car topmargin-sm">
+        <div class="pulsy-icon-wrapper">
+          <img class="place-icon" src="images/animations/place-icon.png" alt="">
+        </div>
+        <img class="car" src="images/animations/car.png" alt="">
+        <img class="wheel" src="images/animations/car-tier.png" alt="">
+      </div>
+    
+    <div class="banner-slider">
+      <div class="slider valign-wrapper m-tb-16 clip-path-left">
+        <!-- <div class="controls">
+          <i class="material-icons p-tb-72" onclick="go('prev')">keyboard_arrow_left</i>
+        </div> -->
+  
+        <section class="section">
+          <ul class="slides slide-wrapper">
+  
+            <li>
+              <img src="images/3.jpeg" alt="Unsplashed background img 1">
+              <div class="caption center-align">
+                <h3>Rastreamento onlne de onde estiver</h3>
+                <h5 class="light grey-text text-lighten-3">Acompanhe seu veículo em tempo real do seu celular, tablet ou computador de onde estiver.</h5>
+              </div>
+            </li>
+  
+            <li>
+              <img src="images/2.jpg" alt="Unsplashed background img 1">
+              <div class="caption left-align">
+                <h3>Left Aligned Caption</h3>
+                <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+              </div>
+            </li>
+  
+            <li>
+              <img src="images/4.jpg" alt="Unsplashed background img 1">
+              <div class="caption right-align">
+                <h3>Right Aligned Caption</h3>
+                <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+              </div>
+            </li>
+            
+          </ul>
+        </section>
+      </div>
+    </div>
+
+    <!-- <div class="controls right-control">
+      <i class="material-icons p-tb-72" onclick="go('next')">keyboard_arrow_right</i>
+    </div> -->
   </div>
 
   <div class="container">
@@ -80,9 +112,10 @@
 
       <!--   Icon Section   -->
       <div class="row">
+        <h4 class="center">Funcionalidades</h4>
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="blue-text"><i class="material-icons">flash_on</i></h2>
+            <h2 class="teal-text"><i class="material-icons">local_gas_station</i></h2>
             <h5>Gasto de Combustível</h5>
             <p class="light">Tenha informação sobre o custo de combustível por veículo. Saiba qual o valor gasto em cada percurso e tenha relatório de abastecimento</p>
           </div>
@@ -90,7 +123,7 @@
 
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="blue-text"><i class="material-icons">group</i></h2>
+            <h2 class="teal-text"><i class="material-icons">build</i></h2>
             <h5>Manutenção Preventiva</h5>
             <p class="light">Cadastre as manutenções periódicas do seu veículo para ter controle e evitar que veículo fique ocioso por manutenções inesperadas.</p>
           </div>
@@ -98,14 +131,14 @@
 
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="blue-text"><i class="material-icons">settings</i></h2>
+            <h2 class="teal-text"><i class="material-icons">warning</i></h2>
             <h5>Alertas</h5>
             <p class="light">Cadastre os eventos e manutenções preventivas e recebas alertas por sms e e-mail. Evitando ociosidade do veículo e mão-de-obra.</p>
           </div>
         </div>
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="blue-text"><i class="material-icons">flash_on</i></h2>
+            <h2 class="teal-text"><i class="material-icons">account_circle</i></h2>
             <h5>Convidado</h5>
             <p class="light">Ferramenta disponível para que você possa convidar uma ou mais pessoas para ter acesso ao sistema e com isso fazer o monitoramento.</p>
           </div>
@@ -113,64 +146,44 @@
 
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="blue-text"><i class="material-icons">settings</i></h2>
+            <h2 class="teal-text"><i class="material-icons">live_help</i></h2>
             <h5>Atendimento</h5>
             <p class="light">Atendimento personalizado realizado por consultores fixos das áreas comercial, pós-venda e suporte que acompanham todo o histórico de cada cliente.</p>
           </div>
         </div>
 
         <div class="col s12 m4">
-            <div class="icon-block">
-              <h2 class="blue-text"><i class="material-icons">group</i></h2>
-              <h5>Abrangência Nacional</h5>
-              <p class="light">Atendimento personalizado em todo território nacional</p>
-            </div>
+          <div class="icon-block">
+            <h2 class="teal-text"><i class="material-icons">location_city</i></h2>
+            <h5>Abrangência Nacional</h5>
+            <p class="light">Atendimento personalizado em todo território nacional</p>
           </div>
-      </div>
-
-    </div>
-  </div>
-
-
-  <div class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <div class="row center">
-          <h2 class="light">Sobre a SatTrack</h2>
-          <h5 class="header col s12 light">Atuando no mercado desde de 2007, no segmento
-              de rastreamento e logística de frotas, conta com
-              sistema inteligente atrelados a alta tecnologia, além
-              da experiência de mercado, oferecemos soluções
-              que protegem seu veículo ou frota de forma tranquila
-              e segura.</h5>
         </div>
       </div>
+
     </div>
-    <div class="parallax"><img src="background2.jpg" alt="Unsplashed background img 2"></div>
   </div>
+
 
   <div class="container">
-    <div class="section">
-
-      <div class="row">
-        <div class="col s12 center">
-          <h3><i class="mdi-content-send brown-text"></i></h3>
-          <h4>Contact Us</h4>
-          <p class="center-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+    <section class="section">
+      <div class="center">
+        <h2>Sobre a SatTrack</h2>
+        <div>
+          <img class="responsive-img" src="images/about.png" alt="Unsplashed background img 2">
+          <h5 class="left-align light">Atuando no mercado desde de 2007, no segmento de rastreamento e logística de frotas, conta com sistema inteligente atrelados a alta tecnologia, além da experiência de mercado, oferecemos soluções que protegem seu veículo ou frota de forma tranquila e segura.</h5>
+          <h4 class="light">Nossa missão</h4>
         </div>
       </div>
-
-    </div>
+    </section>
   </div>
 
   <footer class="page-footer teal">
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
-          <h5 class="white-text">Company Bio</h5>
-          <p class="grey-text text-lighten-4">Somos uma empresa com soluções completas no segmento de segurança eletrônica veicular que podem atender dois objetivos distintos: recuperação veicular e/ou logística.</p>
-
-
+          <h5 class="white-text">Somos a SatTrack</h5>
+          <p class="grey-text text-lighten-4">Uma empresa com soluções completas no segmento de segurança eletrônica veicular que podem atender dois objetivos distintos: recuperação veicular e/ou logística.</p>
         </div>
         <div class="col l3 s12">
           <h5 class="white-text">Settings</h5>
@@ -193,12 +206,9 @@
       </div>
     </div>
     <div class="footer-copyright">
-      <div class="container center">
-      With <i class="material-icons bounce">favorite</i> by <a class="brown-text text-lighten-3" href="http://materializecss.com">SatTrack</a>
-      </div>
+      <div class="container center"><p>Todos os direitos são reservados a SatTrack Rastreamento e Logística</p></div>
     </div>
   </footer>
-
 
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
