@@ -11,48 +11,51 @@
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
-  <div class="navbar-fixed">
-    <nav class="teal">
+  <div id="home" class="navbar-fixed">
+    <nav class="white">
       <div class="nav-wrapper container">
-        <a href="#!" class="brand-logo">Logo</a>
+        <a href="#!" class="brand-logo"><img src="images/logo.svg" alt="SatTrack Rastreamento e Logística"></a>
         <ul class="right hide-on-med-and-down">
+          <li><a href="#home">Início</a></li>
           <li><a href="sass.html">Serviços</a></li>
           <li><a href="badges.html">Sobre</a></li>
           <li><a href="collapsible.html">Contato</a></li>
-          <li class="active"><a href="mobile.html">Telemetria</a></li>
-          <li class="active"><a href="mobile.html">Localizar veículo</a></li>
+          <li class="teal accent-4"><a class="white-text" href="mobile.html">Localizar veículo</a></li>
+          <li class="blue darken-4"><a class="white-text" href="mobile.html">Telemetria</a></li>
         </ul>
-        <ul class="side-nav" id="mobile-demo">
-          <li><a href="sass.html">Sass</a></li>
-          <li><a href="badges.html">Components</a></li>
-          <li><a href="collapsible.html">Javascript</a></li>
-          <li><a href="mobile.html">Mobile</a></li>
+        <ul class="side-nav" id="mobile">
+          <li><a href="sass.html">Início</a></li>
+          <li><a href="sass.html">Serviços</a></li>
+          <li><a href="badges.html">Sobre</a></li>
+          <li><a href="collapsible.html">Contato</a></li>
+          <li class="teal accent-4"><a class="white-text" href="mobile.html">Localizar veículo</a></li>
+          <li class="blue darken-4"><a class="white-text" href="mobile.html">Telemetria</a></li>
         </ul>
-        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <a href="#" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
       </div>
     </nav>
   </div>
 
   <div id="index-banner" class="parallax-container">
-    <div class="section no-pad-bot">
+    <div class="section">
       <div class="container">
-        <h1 class="header center white-text">Nunca foi tão simples proteger seu veículo.</h1>
+        <h1 class="header center white-text light">Nunca foi tão simples proteger seu veículo.</h1>
         <div class="row center">
           <h5 class="header col s12 light">Oferecemos soluções incríveis de rastreamento e logística.</h5>
         </div>
         <div class="row center">
-          <a href="http://materializecss.com/getting-started.html" class="btn-large z-depth-1 waves-effect waves-light white black-text">Telemetria</a>
-          <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Localizar meu veículo</a>
+          <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light teal accent-4 white-text">Localizar meu veículo</a>
+          <a href="http://materializecss.com/getting-started.html" class="btn-large z-depth-1 waves-effect waves-light blue darken-4 mt-12">Telemetria</a>
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="background1.jpg" alt="Unsplashed background img 1"></div>
+    <div class="parallax"><img src="images/5.jpg" alt="Unsplashed background img 1"></div>
   </div>
 
   <div class="">
     <section class="">
         <div class="carousel carousel-slider center" data-indicators="true">
-            <div class="carousel-item red white-text" href="#one!">
+            <div class="carousel-item blue darken-4 white-text" href="#one!">
               <h2>First Panel</h2>
               <p class="white-text">This is your first panel</p>
             </div>
@@ -73,36 +76,56 @@
   </div>
 
   <div class="container">
-    <div class="section">
+    <div class="section p-tb-32">
 
       <!--   Icon Section   -->
       <div class="row">
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
-            <h5 class="center">Speeds up development</h5>
-
-            <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
+            <h2 class="blue-text"><i class="material-icons">flash_on</i></h2>
+            <h5>Gasto de Combustível</h5>
+            <p class="light">Tenha informação sobre o custo de combustível por veículo. Saiba qual o valor gasto em cada percurso e tenha relatório de abastecimento</p>
           </div>
         </div>
 
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">group</i></h2>
-            <h5 class="center">User Experience Focused</h5>
-
-            <p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
+            <h2 class="blue-text"><i class="material-icons">group</i></h2>
+            <h5>Manutenção Preventiva</h5>
+            <p class="light">Cadastre as manutenções periódicas do seu veículo para ter controle e evitar que veículo fique ocioso por manutenções inesperadas.</p>
           </div>
         </div>
 
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">settings</i></h2>
-            <h5 class="center">Easy to work with</h5>
-
-            <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
+            <h2 class="blue-text"><i class="material-icons">settings</i></h2>
+            <h5>Alertas</h5>
+            <p class="light">Cadastre os eventos e manutenções preventivas e recebas alertas por sms e e-mail. Evitando ociosidade do veículo e mão-de-obra.</p>
           </div>
         </div>
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="blue-text"><i class="material-icons">flash_on</i></h2>
+            <h5>Convidado</h5>
+            <p class="light">Ferramenta disponível para que você possa convidar uma ou mais pessoas para ter acesso ao sistema e com isso fazer o monitoramento.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="blue-text"><i class="material-icons">settings</i></h2>
+            <h5>Atendimento</h5>
+            <p class="light">Atendimento personalizado realizado por consultores fixos das áreas comercial, pós-venda e suporte que acompanham todo o histórico de cada cliente.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+            <div class="icon-block">
+              <h2 class="blue-text"><i class="material-icons">group</i></h2>
+              <h5>Abrangência Nacional</h5>
+              <p class="light">Atendimento personalizado em todo território nacional</p>
+            </div>
+          </div>
       </div>
 
     </div>
@@ -113,7 +136,13 @@
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+          <h2 class="light">Sobre a SatTrack</h2>
+          <h5 class="header col s12 light">Atuando no mercado desde de 2007, no segmento
+              de rastreamento e logística de frotas, conta com
+              sistema inteligente atrelados a alta tecnologia, além
+              da experiência de mercado, oferecemos soluções
+              que protegem seu veículo ou frota de forma tranquila
+              e segura.</h5>
         </div>
       </div>
     </div>
@@ -134,24 +163,12 @@
     </div>
   </div>
 
-
-  <div class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <div class="row center">
-          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
-        </div>
-      </div>
-    </div>
-    <div class="parallax"><img src="background3.jpg" alt="Unsplashed background img 3"></div>
-  </div>
-
   <footer class="page-footer teal">
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
           <h5 class="white-text">Company Bio</h5>
-          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+          <p class="grey-text text-lighten-4">Somos uma empresa com soluções completas no segmento de segurança eletrônica veicular que podem atender dois objetivos distintos: recuperação veicular e/ou logística.</p>
 
 
         </div>
@@ -176,8 +193,8 @@
       </div>
     </div>
     <div class="footer-copyright">
-      <div class="container">
-      Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+      <div class="container center">
+      With <i class="material-icons bounce">favorite</i> by <a class="brown-text text-lighten-3" href="http://materializecss.com">SatTrack</a>
       </div>
     </div>
   </footer>

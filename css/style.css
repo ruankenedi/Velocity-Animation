@@ -20,7 +20,7 @@ p {
 }
 
 .parallax-container {
-  min-height: 380px;
+  min-height: 94vh;
   line-height: 0;
   height: auto;
   color: rgba(255,255,255,.9);
@@ -54,4 +54,25 @@ p {
 
 footer.page-footer {
   margin: 0;
+}
+
+#index-banner {
+  padding: 332px 0 0;
+}
+
+.brand-logo {
+  padding: 0 !important;
+  margin: -38px 0 0;
+  width: 202px; 
+}
+
+/* helpers */
+@media screen and (max-width: 379px) {
+  .mt-12 {
+    margin-top: 12px !important;
+  }
+}
+
+.p-tb-32 {
+  padding: 32px 0 !important;
 }
