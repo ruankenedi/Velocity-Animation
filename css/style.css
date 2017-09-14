@@ -127,12 +127,12 @@ footer.page-footer {
 }
 
 .left-banner-slider {
-  width: 68.5%;
-  margin-left: -28%;  
+  width: 62.5%;
+  margin-left: -20%;  
 }
 
 .right-banner-slider {
-  width: 40.5%;
+  width: 62.5%;
 }
 
 /* helpers */
@@ -245,17 +245,17 @@ img.wheel-truck {
 	-webkit-transition: all 1.2s ease-out;
 	-moz-transition: all 1.2s ease-out;
 	transition: all 1.2s ease-out;
-  margin-left: 810px;
+  margin-left: 584px;
   margin-top: -200px;
   width: 779px;
 }
 
 img.wheel-truck {
-	position: absolute;
-	left: 78px;
-	width: 84px;
-	bottom: 38px;
-	z-index: 1;
+  position: absolute;
+  left: 80px;
+  width: 90px;
+  bottom: 147px;
+  z-index: 1;
 }
 
 .running-car.in-view img.truck {
