@@ -6,6 +6,10 @@
  * Made By MaterializeCSS.com
  */
 
+body {
+  overflow-x: hidden;
+}
+
 nav ul a,
 nav .brand-logo {
   color: #444;
@@ -122,10 +126,13 @@ footer.page-footer {
   right: 0%;
 }
 
-.banner-slider {
+.left-banner-slider {
   width: 68.5%;
-  margin-left: -28%;
+  margin-left: -28%;  
+}
 
+.right-banner-slider {
+  width: 40.5%;
 }
 
 /* helpers */
@@ -238,8 +245,9 @@ img.wheel-truck {
 	-webkit-transition: all 1.2s ease-out;
 	-moz-transition: all 1.2s ease-out;
 	transition: all 1.2s ease-out;
-	margin-left: 400px;
-	margin-top: -120px;
+  margin-left: 810px;
+  margin-top: -200px;
+  width: 779px;
 }
 
 img.wheel-truck {

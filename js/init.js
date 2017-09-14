@@ -65,6 +65,11 @@ $(window).scroll(function () {
       autoplay(3000);
     });
 
+    $(document).ready(function(){
+      $('.slider').slider();
+      autoplay(3000);
+    });
+
     $('.button-collapse').sideNav({
       menuWidth: 300, // Default is 300
       edge: 'right', // Choose the horizontal origin
