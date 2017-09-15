@@ -304,3 +304,33 @@ img.wheel-truck {
 	-moz-transform: translate(-340px, 0px) rotate(-600deg);
 	transform: translate(-340px, 0px) rotate(-600deg);
 }
+
+.page-footer {
+  background-image: url('../images/background-footer.png') !important;
+  background-position: center !important;
+  background: no-repeat;
+}
+
+.phone{
+  font-size: 15pt;
+}
+
+.logo-footer {
+   background-image: url('../images/logo-footer.png') !important;
+   background-position: center !important;
+   background: no-repeat;
+   width: 50%;
+   height: 10vh;
+}
+
+.icons {
+    font-size: 26pt;
+}
+
+.text-white {
+  text-align: center;
+}
+
+.dd {
+  font-size: 10pt;
+}
