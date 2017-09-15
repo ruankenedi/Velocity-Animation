@@ -1,4 +1,5 @@
-let playing;
+let playing,
+    _counter = 1;
 
 function autoplay(speed) {
   if (typeof speed === 'number' && speed >= 1500) {
@@ -43,11 +44,21 @@ function isScrolledIntoView(elem) {
 }
 
 $(window).scroll(function () {
-   $('.running-car').each(function () {
+  $('.running-car').each(function () {
     if (isScrolledIntoView(this) === true) {
       $(this).addClass('in-view');
+
+      if (_counter <= 1) {
+        _counter += 1;
+
+        $('.pulsy-icon-wrapper').addClass('bounceInDown');
+        setTimeout(() => {
+          $('.pulsy-icon-wrapper').removeClass('bounceInDown');
+        }, 2200);
+      }
     } else {
       $(this).removeClass('in-view');
+      $('.pulsy-icon-wrapper').removeClass('fadeInDown');
     }
   });
 });
@@ -55,9 +66,9 @@ $(window).scroll(function () {
 
 (function($){
   $.scrollIt({
-    upKey: 38,
-    downKey: 40,
-    easing: 'linear',
+    // upKey: 38,
+    // downKey: 40,
+    easing: 'ease-in',
     scrollTime: 1000,  
     activeClass: 'active',
     onPageChange: null,

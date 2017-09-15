@@ -83,11 +83,6 @@ footer.page-footer {
   min-height: 768px;
 }
 
-/* .header-background video {
-  width: 100%;
-  height: auto;
-} */
-
 .slide-wrapper, .slider {
   height: 660px !important;
 }
@@ -193,14 +188,15 @@ img.wheel {
 	-webkit-transition: all 1.2s ease-out;
 	-moz-transition: all 1.2s ease-out;
 	transition: all 1.2s ease-out;
-	margin-left: -360px;
+  margin-left: -360px;
+  margin-top: -59px;
 }
 
 img.wheel {
   position: absolute;
-  width: 140px;
-  left: 401px;
-  bottom: 47px;
+  width: 141px;
+  left: 400px;
+  bottom: 48px;
   z-index: 1;
 }
 
@@ -245,8 +241,8 @@ img.wheel-truck {
 	-webkit-transition: all 1.2s ease-out;
 	-moz-transition: all 1.2s ease-out;
 	transition: all 1.2s ease-out;
-  margin-left: 584px;
-  margin-top: -200px;
+  margin-left: 1750px;
+  margin-top: -80px;
   width: 779px;
 }
 
@@ -254,7 +250,7 @@ img.wheel-truck {
   position: absolute;
   left: 80px;
   width: 90px;
-  bottom: 147px;
+  bottom: 48px;
   z-index: 1;
 }
 
@@ -292,4 +288,89 @@ img.wheel-truck {
 	-webkit-transform: translate(-340px, 0px) rotate(-600deg);
 	-moz-transform: translate(-340px, 0px) rotate(-600deg);
 	transform: translate(-340px, 0px) rotate(-600deg);
+}
+
+.pulsy-icon-wrapper {
+	margin-top: 132px;
+}
+
+.place-icon-right {
+  margin-top: -624px;
+  margin-left: 1317px;
+}
+
+.place-icon-left{
+	margin-left: 332px;
+}
+
+.place-icon {
+	width: 250px;
+}
+
+.place-icon::after {
+	content: "";
+	-webkit-border-radius: 100%;
+	border-radius: 100%;
+	height: 200%;
+	width: 200%;
+	position: absolute;
+	margin: -100% 0 0 -100%;
+}
+
+@media screen and (max-width: 1020px) {
+  .running-car {
+    display: none;
+  }
+
+  .clip-path-left {
+    clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%);
+    left: 0;
+  }
+  
+  .clip-path-right {
+    clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%);
+  }
+
+  .left-banner-slider {
+    width: 100%;
+    margin: 0;  
+  }
+  
+  .right-banner-slider {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+@keyframes bounceInDown {
+	from,
+	60%,
+	75%,
+	90%,
+	to {
+		/* animation-timing-function: cubic-bezier(0.130, 0.600, 0.300, 1.000); */
+		animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+	}
+	0% {
+		opacity: 0;
+		transform: translate3d(0, -1600px, 0);
+	}
+	60% {
+		opacity: 1;
+		transform: translate3d(0, 25px, 0);
+	}
+	75% {
+		transform: translate3d(0, -10px, 0);
+	}
+	90% {
+		transform: translate3d(0, 5px, 0);
+	}
+	to {
+		transform: none;
+	}
+}
+
+.bounceInDown {
+	animation: bounceInDown 3s;
+	animation-iteration-count: 1;
 }
