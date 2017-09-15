@@ -54,7 +54,7 @@ function isScrolledIntoView(elem) {
   $.scrollIt({
     // upKey: 38,
     // downKey: 40,
-    easing: 'ease-in',
+    easing: 'linear',
     scrollTime: 1000,  
     activeClass: 'active',
     onPageChange: null,
