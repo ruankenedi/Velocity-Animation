@@ -33,6 +33,12 @@ function go(where) {
   }
 }
 
+function mobileViewHelper(element) {
+  if (screen.width <= 1020 && typeof element === 'string') {
+    $(element).remove();
+  }
+}
+
 function isScrolledIntoView(elem) {
   var docViewTop = $(window).scrollTop();
   var docViewBottom = docViewTop + $(window).height();
@@ -42,27 +48,6 @@ function isScrolledIntoView(elem) {
 
   return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
 }
-
-$(window).scroll(function () {
-  $('.running-car').each(function () {
-    if (isScrolledIntoView(this) === true) {
-      $(this).addClass('in-view');
-
-      if (_counter <= 1) {
-        _counter += 1;
-
-        $('.pulsy-icon-wrapper').addClass('bounceInDown');
-        setTimeout(() => {
-          $('.pulsy-icon-wrapper').removeClass('bounceInDown');
-        }, 2200);
-      }
-    } else {
-      $(this).removeClass('in-view');
-      $('.pulsy-icon-wrapper').removeClass('fadeInDown');
-    }
-  });
-});
-
 
 (function($){
   $.scrollIt({
@@ -92,12 +77,34 @@ $(window).scroll(function () {
     });
 
     $('.button-collapse').sideNav({
-      menuWidth: 300, // Default is 300
-      edge: 'right', // Choose the horizontal origin
-      closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
-      draggable: true, // Choose whether you can drag to open on touch screens,
+      menuWidth: 300,
+      edge: 'left',
+      closeOnClick: true,
+      draggable: true,
     }
   );
 
-  }); // end of document ready
-})(jQuery); // end of jQuery name space
+  $(window).scroll(function () {
+    $('.running-car').each(function () {
+      if (isScrolledIntoView(this) === true) {
+        $(this).addClass('in-view');
+  
+        if (_counter <= 1) {
+          _counter += 1;
+  
+          $('.pulsy-icon-wrapper').addClass('bounceInDown');
+          setTimeout(() => {
+            $('.pulsy-icon-wrapper').removeClass('bounceInDown');
+          }, 2200);
+        }
+      } else {
+        $(this).removeClass('in-view');
+        $('.pulsy-icon-wrapper').removeClass('fadeInDown');
+      }
+    });
+  });
+
+  mobileViewHelper('.running-car');
+
+  });
+})(jQuery);
