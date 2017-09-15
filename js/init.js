@@ -54,6 +54,8 @@ $(window).scroll(function () {
 
 
 (function($){
+  $.scrollIt();
+  
   $(function(){
 
     $('.carousel.carousel-slider').carousel({ fullWidth: true });    

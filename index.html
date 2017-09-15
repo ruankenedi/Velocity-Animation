@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Parallax Template - Materialize</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 </head>
+
 <body>
-  <div id="home" class="navbar-fixed">
+  <div data-scroll-index="0" id="home" class="navbar-fixed">
     <nav class="white">
       <div class="nav-wrapper container">
         <a href="#!" class="brand-logo"><img src="images/logo.svg" alt="SatTrack Rastreamento e Logística"></a>
         <a href="#" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
-          <li><a href="#home">Início</a></li>
-          <li><a href="sass.html">Serviços</a></li>
-          <li><a href="badges.html">Sobre</a></li>
-          <li><a href="collapsible.html">Contato</a></li>
+          <li><a data-scroll-nav="0">Início</a></li>
+          <li><a data-scroll-nav="1">Serviços</a></li>
+          <li><a data-scroll-index="2">Sobre</a></li>
+          <li><a data-scroll-index="0">Contato</a></li>
           <li class=""><a class="teal accent-4 btn waves-effect waves-light white-text" href="mobile.html">Localizar veículo</a></li>
           <li class=""><a class="blue darken-4 btn waves-effect waves-light white-text ml-4-neg" href="mobile.html">Telemetria</a></li>
         </ul>
@@ -54,52 +56,54 @@
     </div>
   </div>
 
-  <h2 class="light center p-tb-32">Para você</h2>
-  <div class="_container flex">
+  <div data-scroll-index="1" class="section">
+    <h2 class="light center p-tb-32">Para você</h2>
+    <div class="_container flex">
 
-    <div class="running-car topmargin-sm">
-      <div class="pulsy-icon-wrapper">
-        <img class="place-icon" src="images/animations/place-icon.png" alt="">
+      <div class="running-car topmargin-sm">
+        <div class="pulsy-icon-wrapper">
+          <img class="place-icon" src="images/animations/place-icon.png" alt="">
+        </div>
+        <img class="car" src="images/animations/car.png" alt="">
+        <img class="wheel" src="images/animations/car-tier.png" alt="">
       </div>
-      <img class="car" src="images/animations/car.png" alt="">
-      <img class="wheel" src="images/animations/car-tier.png" alt="">
-    </div>
-    
-    <div class="left-banner-slider">
-      <div class="slider valign-wrapper m-tb-16 clip-path-left">
-        <!-- <div class="controls">
-          <i class="material-icons p-tb-72" onclick="go('prev')">keyboard_arrow_left</i>
-        </div> -->
-  
-        <section class="section">
-          <ul class="slides slide-wrapper">
-  
-            <li>
-              <img src="images/3.jpeg" alt="Unsplashed background img 1">
-              <div class="caption center-align">
-                <h3>Rastreamento onlne de onde estiver</h3>
-                <h5 class="light grey-text text-lighten-3">Acompanhe seu veículo em tempo real do seu celular, tablet ou computador de onde estiver.</h5>
-              </div>
-            </li>
-  
-            <li>
-              <img src="images/2.jpg" alt="Unsplashed background img 1">
-              <div class="caption left-align">
-                <h3>Left Aligned Caption</h3>
-                <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-              </div>
-            </li>
-  
-            <li>
-              <img src="images/4.jpg" alt="Unsplashed background img 1">
-              <div class="caption right-align">
-                <h3>Right Aligned Caption</h3>
-                <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-              </div>
-            </li>
-            
-          </ul>
-        </section>
+
+      <div class="left-banner-slider">
+        <div class="slider valign-wrapper m-tb-16 clip-path-left">
+          <!-- <div class="controls">
+            <i class="material-icons p-tb-72" onclick="go('prev')">keyboard_arrow_left</i>
+          </div> -->
+
+          <section class="section">
+            <ul class="slides slide-wrapper">
+
+              <li>
+                <img src="images/3.jpeg" alt="Unsplashed background img 1">
+                <div class="caption center-align">
+                  <h3>Rastreamento onlne de onde estiver</h3>
+                  <h5 class="light grey-text text-lighten-3">Acompanhe seu veículo em tempo real do seu celular, tablet ou computador de onde estiver.</h5>
+                </div>
+              </li>
+
+              <li>
+                <img src="images/2.jpg" alt="Unsplashed background img 1">
+                <div class="caption left-align">
+                  <h3>Left Aligned Caption</h3>
+                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                </div>
+              </li>
+
+              <li>
+                <img src="images/4.jpg" alt="Unsplashed background img 1">
+                <div class="caption right-align">
+                  <h3>Right Aligned Caption</h3>
+                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                </div>
+              </li>
+
+            </ul>
+          </section>
+        </div>
       </div>
     </div>
 
@@ -112,10 +116,10 @@
         <!-- <div class="controls">
           <i class="material-icons p-tb-72" onclick="go('prev')">keyboard_arrow_left</i>
         </div> -->
-  
+
         <section class="section">
           <ul class="slides slide-wrapper">
-  
+
             <li>
               <img src="images/3.jpeg" alt="Unsplashed background img 1">
               <div class="caption center-align">
@@ -123,7 +127,7 @@
                 <h5 class="light grey-text text-lighten-3">Acompanhe seu veículo em tempo real do seu celular, tablet ou computador de onde estiver.</h5>
               </div>
             </li>
-  
+
             <li>
               <img src="images/2.jpg" alt="Unsplashed background img 1">
               <div class="caption left-align">
@@ -131,7 +135,7 @@
                 <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
               </div>
             </li>
-  
+
             <li>
               <img src="images/4.jpg" alt="Unsplashed background img 1">
               <div class="caption right-align">
@@ -139,7 +143,7 @@
                 <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
               </div>
             </li>
-            
+
           </ul>
         </section>
       </div>
@@ -164,7 +168,8 @@
           <div class="icon-block">
             <h2 class="teal-text"><i class="material-icons">local_gas_station</i></h2>
             <h5>Gasto de Combustível</h5>
-            <p class="light">Tenha informação sobre o custo de combustível por veículo. Saiba qual o valor gasto em cada percurso e tenha relatório de abastecimento</p>
+            <p class="light">Tenha informação sobre o custo de combustível por veículo. Saiba qual o valor gasto em cada percurso e tenha
+              relatório de abastecimento</p>
           </div>
         </div>
 
@@ -172,7 +177,8 @@
           <div class="icon-block">
             <h2 class="teal-text"><i class="material-icons">build</i></h2>
             <h5>Manutenção Preventiva</h5>
-            <p class="light">Cadastre as manutenções periódicas do seu veículo para ter controle e evitar que veículo fique ocioso por manutenções inesperadas.</p>
+            <p class="light">Cadastre as manutenções periódicas do seu veículo para ter controle e evitar que veículo fique ocioso por manutenções
+              inesperadas.</p>
           </div>
         </div>
 
@@ -180,14 +186,16 @@
           <div class="icon-block">
             <h2 class="teal-text"><i class="material-icons">warning</i></h2>
             <h5>Alertas</h5>
-            <p class="light">Cadastre os eventos e manutenções preventivas e recebas alertas por sms e e-mail. Evitando ociosidade do veículo e mão-de-obra.</p>
+            <p class="light">Cadastre os eventos e manutenções preventivas e recebas alertas por sms e e-mail. Evitando ociosidade do veículo
+              e mão-de-obra.</p>
           </div>
         </div>
         <div class="col s12 m4">
           <div class="icon-block">
             <h2 class="teal-text"><i class="material-icons">account_circle</i></h2>
             <h5>Convidado</h5>
-            <p class="light">Ferramenta disponível para que você possa convidar uma ou mais pessoas para ter acesso ao sistema e com isso fazer o monitoramento.</p>
+            <p class="light">Ferramenta disponível para que você possa convidar uma ou mais pessoas para ter acesso ao sistema e com isso
+              fazer o monitoramento.</p>
           </div>
         </div>
 
@@ -195,7 +203,8 @@
           <div class="icon-block">
             <h2 class="teal-text"><i class="material-icons">live_help</i></h2>
             <h5>Atendimento</h5>
-            <p class="light">Atendimento personalizado realizado por consultores fixos das áreas comercial, pós-venda e suporte que acompanham todo o histórico de cada cliente.</p>
+            <p class="light">Atendimento personalizado realizado por consultores fixos das áreas comercial, pós-venda e suporte que acompanham
+              todo o histórico de cada cliente.</p>
           </div>
         </div>
 
@@ -213,12 +222,14 @@
 
 
   <div class="container">
-    <section class="section">
+    <section class="section" data-scroll-index="2">
       <div class="center">
         <h2>Sobre a SatTrack</h2>
         <div>
           <img class="responsive-img" src="images/about.png" alt="Unsplashed background img 2">
-          <h5 class="left-align light">Atuando no mercado desde de 2007, no segmento de rastreamento e logística de frotas, conta com sistema inteligente atrelados a alta tecnologia, além da experiência de mercado, oferecemos soluções que protegem seu veículo ou frota de forma tranquila e segura.</h5>
+          <h5 class="left-align light">Atuando no mercado desde de 2007, no segmento de rastreamento e logística de frotas, conta com sistema inteligente
+            atrelados a alta tecnologia, além da experiência de mercado, oferecemos soluções que protegem seu veículo ou
+            frota de forma tranquila e segura.</h5>
           <h4 class="light">Nossa missão</h4>
         </div>
       </div>
@@ -230,7 +241,8 @@
       <div class="row">
         <div class="col l6 s12">
           <h5 class="white-text">Somos a SatTrack</h5>
-          <p class="grey-text text-lighten-4">Uma empresa com soluções completas no segmento de segurança eletrônica veicular que podem atender dois objetivos distintos: recuperação veicular e/ou logística.</p>
+          <p class="grey-text text-lighten-4">Uma empresa com soluções completas no segmento de segurança eletrônica veicular que podem atender dois objetivos
+            distintos: recuperação veicular e/ou logística.</p>
         </div>
         <div class="col l3 s12">
           <h5 class="white-text">Settings</h5>
@@ -253,14 +265,18 @@
       </div>
     </div>
     <div class="footer-copyright">
-      <div class="container center"><p>Todos os direitos são reservados a SatTrack Rastreamento e Logística</p></div>
+      <div class="container center">
+        <p>Todos os direitos são reservados a SatTrack Rastreamento e Logística</p>
+      </div>
     </div>
   </footer>
 
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
+  <script src="js/scrollIt.js"></script>
   <script src="js/init.js"></script>
 
-  </body>
+</body>
+
 </html>
