@@ -64,6 +64,10 @@ footer.page-footer {
   padding: 332px 0 0;
 }
 
+#sidenav-overlay {
+  z-index: 900 !important;
+}
+
 .brand-logo {
   padding: 0 !important;
   margin: -40px 0 0;
