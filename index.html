@@ -19,17 +19,19 @@
         <a href="#!" class="brand-logo"><img src="images/logo.svg" alt="SatTrack Rastreamento e Logística"></a>
         <a href="#" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
-          <li data-scroll-nav="0"><a>Início</a></li>
-          <li data-scroll-nav="1"><a>Serviços</a></li>
-          <li data-scroll-nav="2"><a>Sobre</a></li>
+          <li data-scroll-nav="0"><a data-scroll-nav="0">Início</a></li>
+          <li data-scroll-nav="1"><a data-scroll-nav="1">Serviços</a></li>
+          <li data-scroll-nav="2"><a data-scroll-nav="2">Funcionalidades</a></li>
+          <li data-scroll-nav="3"><a data-scroll-nav="3">Sobre</a></li>
           <li><a data-scroll-nav="0">Contato</a></li>
           <li class=""><a class="teal accent-4 btn waves-effect waves-light white-text" href="mobile.html">Localizar veículo</a></li>
           <li class=""><a class="blue darken-4 btn waves-effect waves-light white-text ml-4-neg" href="mobile.html">Telemetria</a></li>
         </ul>
         <ul class="side-nav" id="mobile">
-          <li data-scroll-nav="0"><a>Início</a></li>
-          <li data-scroll-nav="1"><a>Serviços</a></li>
-          <li data-scroll-nav="2"><a>Sobre</a></li>
+          <li data-scroll-nav="0"><a data-scroll-nav="0">Início</a></li>
+          <li data-scroll-nav="1"><a data-scroll-nav="1">Serviços</a></li>
+          <li data-scroll-nav="2"><a data-scroll-nav="2">Funcionalidades</a></li>
+          <li data-scroll-nav="3"><a data-scroll-nav="3">Sobre</a></li>
           <li><a data-scroll-nav="0">Contato</a></li>
           <li class="teal accent-4"><a class="white-text" href="mobile.html">Localizar veículo</a></li>
           <li class="blue darken-4"><a class="white-text" href="mobile.html">Telemetria</a></li>
@@ -57,7 +59,7 @@
   </div>
 
   <div data-scroll-index="1" class="section">
-    <h2 class="light center p-tb-32">Para você</h2>
+    <!-- <h2 class="light center p-tb-32">Para você</h2> -->
     <div class="_container flex">
 
       <div class="running-car topmargin-sm">
@@ -79,7 +81,8 @@
 
               <li>
                 <img src="images/3.jpeg" alt="Unsplashed background img 1">
-                <div class="caption center-align">
+                <div class=slide-mask></div>
+                <div class="regular-caption caption left-align">
                   <h3>Rastreamento onlne de onde estiver</h3>
                   <h5 class="light grey-text text-lighten-3">Acompanhe seu veículo em tempo real do seu celular, tablet ou computador de onde estiver.</h5>
                 </div>
@@ -87,7 +90,8 @@
 
               <li>
                 <img src="images/2.jpg" alt="Unsplashed background img 1">
-                <div class="caption left-align">
+                <div class=slide-mask></div>
+                <div class="regular-caption caption left-align">
                   <h3>Left Aligned Caption</h3>
                   <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
                 </div>
@@ -95,7 +99,8 @@
 
               <li>
                 <img src="images/4.jpg" alt="Unsplashed background img 1">
-                <div class="caption right-align">
+                <div class=slide-mask></div>
+                <div class="regular-caption caption left-align">
                   <h3>Right Aligned Caption</h3>
                   <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
                 </div>
@@ -122,7 +127,8 @@
 
             <li>
               <img src="images/3.jpeg" alt="Unsplashed background img 1">
-              <div class="caption center-align">
+              <div class=slide-mask></div>
+              <div class="regular-caption left-caption caption left-align">
                 <h3>Rastreamento onlne de onde estiver</h3>
                 <h5 class="light grey-text text-lighten-3">Acompanhe seu veículo em tempo real do seu celular, tablet ou computador de onde estiver.</h5>
               </div>
@@ -130,7 +136,8 @@
 
             <li>
               <img src="images/2.jpg" alt="Unsplashed background img 1">
-              <div class="caption left-align">
+              <div class=slide-mask></div>
+              <div class="regular-caption left-caption caption left-align">
                 <h3>Left Aligned Caption</h3>
                 <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
               </div>
@@ -138,7 +145,8 @@
 
             <li>
               <img src="images/4.jpg" alt="Unsplashed background img 1">
-              <div class="caption right-align">
+              <div class=slide-mask></div>
+              <div class="regular-caption left-caption caption left-align">
                 <h3>Right Aligned Caption</h3>
                 <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
               </div>
@@ -158,7 +166,7 @@
     </div>
   </div>
 
-  <div class="container">
+  <div class="container" data-scroll-index="2">
     <div class="section p-tb-32">
 
       <!--   Icon Section   -->
@@ -222,7 +230,7 @@
 
 
   <div class="container">
-    <section class="section" data-scroll-index="2">
+    <section class="section" data-scroll-index="3">
       <div class="center">
         <h2>Sobre a SatTrack</h2>
         <div>
@@ -239,10 +247,20 @@
   <footer class="page-footer teal">
     <div class="container">
       <div class="row">
+        <div class="col l3 s12">
+            <h3 class="white-text">Connect</h3>
+            <ul>
+              <li><a class="white-text" href="#!">Link 1</a></li>
+              <li><a class="white-text" href="#!">Link 2</a></li>
+              <li><a class="white-text" href="#!">Link 3</a></li>
+              <li><a class="white-text" href="#!">Link 4</a></li>
+            </ul>
+          </div>
         <div class="col l6 s12">
           <h3 class="white-text">Somos a SatTrack</h3>
-          <p class="grey-text text-lighten-4">Uma empresa com soluções completas no segmento de segurança eletrônica veicular que podem atender dois objetivos
-            distintos: recuperação veicular e/ou logística.</p>
+          <img width="300" src="images/logo.svg" alt="">
+          <img width="50" src="images/logo.svg" alt="">
+          <img width="50" src="images/logo.svg" alt="">
         </div>
         <div class="col l3 s12">
           <h3 class="white-text">Contato</h3>
@@ -251,15 +269,6 @@
               <h5>Londrina</h5>
               <p>43 3333-3333</p>
             </li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
-          </ul>
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Connect</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
             <li><a class="white-text" href="#!">Link 2</a></li>
             <li><a class="white-text" href="#!">Link 3</a></li>
             <li><a class="white-text" href="#!">Link 4</a></li>

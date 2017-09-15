@@ -121,6 +121,7 @@ footer.page-footer {
 
 ._container {
   width: 100%;
+  margin-top: -31px;
   position: relative;
   right: 0%;
 }
@@ -321,6 +322,10 @@ img.wheel-truck {
 	margin: -100% 0 0 -100%;
 }
 
+.left-caption {
+  left: 6% !important;
+}
+
 @media screen and (max-width: 1020px) {
   .running-car {
     display: none;
@@ -343,6 +348,15 @@ img.wheel-truck {
   .right-banner-slider {
     width: 100%;
     margin: 0;
+  }
+
+  .slide-wrapper, .slider {
+    height: 100vh;
+    min-height: 600px !important;
+  }
+
+  .regular-caption {
+    left: 6% !important;
   }
 }
 
@@ -377,4 +391,12 @@ img.wheel-truck {
 .bounceInDown {
 	animation: bounceInDown 3s;
 	animation-iteration-count: 1;
+}
+
+.slide-mask {
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
 }

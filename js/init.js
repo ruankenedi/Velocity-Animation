@@ -5,10 +5,11 @@ function autoplay(speed) {
   if (typeof speed === 'number' && speed >= 1500) {
     setTimeout(() => {
       $('.slider').slider('next');
+      $('.slider').slider('pause');
 
       playing = setTimeout(() => {
         autoplay(speed);
-      }, (speed * 2)) ;
+      }, (speed * 3)) ;
     }, speed);
   }
 }
