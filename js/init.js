@@ -54,7 +54,15 @@ $(window).scroll(function () {
 
 
 (function($){
-  $.scrollIt();
+  $.scrollIt({
+    upKey: 38,
+    downKey: 40,
+    easing: 'linear',
+    scrollTime: 1000,  
+    activeClass: 'active',
+    onPageChange: null,
+    topOffset: -50
+  });
   
   $(function(){
 
