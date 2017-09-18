@@ -217,42 +217,6 @@ img.wheel {
   z-index: 1;
 }
 
-.running-car.in-view img.car {
-	-webkit-transform: translate(285px, 0px) rotate(0deg);
-	-moz-transform: translate(285px, 0px) rotate(0deg);
-	transform: translate(285px, 0px) rotate(0deg);
-}
-
-.running-car.in-view img.wheel {
-	-webkit-transform: translate(285px, 0px) rotate(600deg);
-	-moz-transform: translate(285px, 0px) rotate(600deg);
-	transform: translate(285px, 0px) rotate(600deg);
-}
-
-/* .device-xs .running-car.in-view img.car {
-	-webkit-transform: translate(500px, 0px) rotate(0deg);
-	-moz-transform: translate(500px, 0px) rotate(0deg);
-	transform: translate(500px, 0px) rotate(0deg);
-}
-
-.device-xs .running-car.in-view img.wheel {
-	-webkit-transform: translate(500px, 0px) rotate(600deg);
-	-moz-transform: translate(500px, 0px) rotate(600deg);
-	transform: translate(500px, 0px) rotate(600deg);
-}
-
-.device-xxs .running-car.in-view img.car {
-	-webkit-transform: translate(350px, 0px) rotate(0deg);
-	-moz-transform: translate(350px, 0px) rotate(0deg);
-	transform: top translate(350px, 0px) rotate(0deg);
-}
-
-.device-xxs .running-car.in-view img.wheel {
-	-webkit-transform: translate(350px, 0px) rotate(600deg);
-	-moz-transform: translate(350px, 0px) rotate(600deg);
-	transform: translate(350px, 0px) rotate(600deg);
-} */
-
 #truck {
   position: absolute !important;
   right: 0px !important;
@@ -286,51 +250,13 @@ img.second-truck-tier {
   width: 90px;
 }
 
-.running-car.in-view img.truck {
-	-webkit-transform: translate(-450px, 0px) rotate(0deg);
-	-moz-transform: translate(-450px, 0px) rotate(0deg);
-	transform: translate(-450px, 0px) rotate(0deg);
-}
-
-.running-car.in-view img.truck-tier {
-	-webkit-transform: translate(-450px, 0px) rotate(-600deg);
-	-moz-transform: translate(-450px, 0px) rotate(-600deg);
-	transform: translate(-450px, 0px) rotate(-600deg);
-}
-
-.device-xs .running-car.in-view img.truck {
-	-webkit-transform: translate(-300px, 0px) rotate(0deg);
-	-moz-transform: translate(-300px, 0px) rotate(0deg);
-	transform: translate(-300px, 0px) rotate(0deg);
-}
-
-.device-xs .running-car.in-view img.truck-tier {
-	-webkit-transform: translate(-290px, 0px) rotate(-600deg);
-	-moz-transform: translate(-290px, 0px) rotate(-600deg);
-	transform: translate(-290px, 0px) rotate(-600deg);
-}
-
-.device-xxs .running-car.in-view img.truck {
-	-webkit-transform: translate(-350px, 0px) rotate(0deg);
-	-moz-transform: translate(-350px, 0px) rotate(0deg);
-	transform: translate(-350px, 0px) rotate(0deg);
-}
-
-.device-xxs .running-car.in-view img.truck-tier {
-	-webkit-transform: translate(-340px, 0px) rotate(-600deg);
-	-moz-transform: translate(-340px, 0px) rotate(-600deg);
-	transform: translate(-340px, 0px) rotate(-600deg);
-}
-
 .pulsy-icon-wrapper {
 	margin-top: 132px;
 }
 
 .place-icon-right {
-  /* margin-top: -624px;
-  margin-left: 1317px; */
   margin-top: 62px;
-  margin-left: 117px;
+  margin-left: 270px;
 }
 
 .place-icon-left{
@@ -352,7 +278,7 @@ img.second-truck-tier {
 }
 
 .left-caption {
-  left: 6% !important;
+  left: 26% !important;
 }
 
 @keyframes bounceInDown {
@@ -366,14 +292,14 @@ img.second-truck-tier {
 	}
 	0% {
 		opacity: 0;
-		transform: translate3d(0, -1600px, 0);
+		transform: translate3d(0, -180px, 0);
 	}
 	60% {
 		opacity: 1;
 		transform: translate3d(0, 25px, 0);
 	}
 	75% {
-		transform: translate3d(0, -10px, 0);
+		transform: translate3d(0, -30px, 0);
 	}
 	90% {
 		transform: translate3d(0, 5px, 0);
@@ -384,17 +310,30 @@ img.second-truck-tier {
 }
 
 .bounceInDown {
-	animation: bounceInDown 3s;
-	animation-iteration-count: 1;
+	animation: bounceInDown 2.3s;
+  animation-iteration-count: 1;
+  animation-delay: 0.1s;
 }
 
 .slide-mask {
-  background: rgba(0, 0, 0, 0.5);
+  background: 
+  linear-gradient(
+    rgba(0, 0, 0, 0.60), 
+    rgba(0, 0, 0, 0.60) 
+  ),
+  url(../images/3.jpeg);
+  background-position: center;
+  background-size: cover;
   width: 100%;
   height: 100%;
-  position: absolute;
+  position: sticky;
   bottom: 0;
+  z-index: -1;
 }
+
+/* .slide-mask::after {
+  content: '';
+} */
 
 .about-content p {
   color: #616161 !important;
@@ -467,6 +406,15 @@ img.second-truck-tier {
   margin-left: 536px;
 }
 
+.slider .slides li .caption {
+  width: 60% !important;
+}
+
+.indicators {
+  z-index: 10;
+  bottom: 16px !important;
+}
+
 @media screen and (min-width: 1595px) and (max-width: 1602px) {
   ._nav-wrapper-container {
     margin: 0 0 0 82px;
@@ -476,7 +424,7 @@ img.second-truck-tier {
     margin-left: 1117px;
     margin-top: -638px;
   }
-
+/* 
   img.truck {
     margin-left: 1550px;
     margin-top: -76px;
@@ -486,7 +434,7 @@ img.second-truck-tier {
   img.truck-tier {
     left: 1080px;
     bottom: 48px;
-  }
+  } */
 }
 
 @media screen and (max-width: 1560px) {
@@ -494,7 +442,7 @@ img.second-truck-tier {
     margin: 0 142px 0 0;
   }
 
-  .place-icon-right {
+  /* .place-icon-right {
     margin-top: -624px;
     margin-left: 1042px;
   }
@@ -507,7 +455,7 @@ img.second-truck-tier {
 
   img.truck-tier { 
     left: 1030px;
-  }
+  } */
 }
 
 @media screen and (max-width: 1440px) {
@@ -529,10 +477,6 @@ img.second-truck-tier {
     height: 100vh;
     min-height: 600px !important;
   }
-
-  .place-icon-right {
-    margin-left: 1052px;
-  }
 }
 
 @media screen and (max-width: 1366px) {
@@ -541,11 +485,7 @@ img.second-truck-tier {
   }
 }
 
-@media screen and (max-width: 1020px) {
-  .running-car {
-    display: none;
-  }
-
+@media screen and (max-width: 1300px) {
   .clip-path-left {
     clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%);
     left: 0;
@@ -554,8 +494,15 @@ img.second-truck-tier {
   .clip-path-right {
     clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%);
   }
+} 
+
+@media screen and (max-width: 1020px) {
+  .running-car {
+    display: none;
+  }
 
   .left-banner-slider {
+    position: initial;
     width: 100%;
     margin: 0;  
   }
@@ -567,11 +514,15 @@ img.second-truck-tier {
 
   .slide-wrapper, .slider {
     height: 100vh;
-    min-height: 600px !important;
+    min-height: 580px !important;
   }
 
-  .regular-caption {
-    left: 6% !important;
+  .left-caption {
+    left: 15% !important;
+  }
+
+  .slider .slides li .caption {
+    width: 70% !important;
   }
 
   .about-image {
