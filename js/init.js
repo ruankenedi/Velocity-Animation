@@ -63,14 +63,8 @@ function isScrolledIntoView(elem) {
   
   $(function(){
 
-    $('.carousel.carousel-slider').carousel({ fullWidth: true });    
-    $('.button-collapse').sideNav();
+    $('.carousel.carousel-slider').carousel({ fullWidth: true });
     $('.parallax').parallax();
-
-    $(document).ready(function(){
-      $('.slider').slider();
-      autoplay(3000);
-    });
 
     $(document).ready(function(){
       $('.slider').slider();
