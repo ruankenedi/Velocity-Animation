@@ -7,24 +7,24 @@
   <title>Parallax Template - Materialize</title>
 
   <!-- CSS  -->
-  <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" /> -->
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 </head>
 
 <body>
   <div data-scroll-index="0" id="home" class="navbar-fixed">
     <nav class="white">
-      <div class="nav-wrapper container">
+      <div class="nav-wrapper _nav-wrapper-container">
         <a href="#!" class="brand-logo"><img src="images/logo.svg" alt="SatTrack Rastreamento e Logística"></a>
         <a href="#" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-        <ul class="right hide-on-med-and-down">
+        <ul class="menu-ul hide-on-med-and-down">
           <li data-scroll-nav="0"><a>Início</a></li>
           <li data-scroll-nav="1"><a>Serviços</a></li>
           <li data-scroll-nav="2"><a>Funcionalidades</a></li>
           <li data-scroll-nav="3"><a>Sobre</a></li>
           <li><a data-scroll-nav="0">Contato</a></li>
-          <li class=""><a class="teal accent-4 btn waves-effect waves-light white-text" href="http://app.sattrack.com.br/">Localizar veículo</a></li>
+          <li class=""><a class="teal accent-4 btn waves-effect waves-light white-text" href="http://sattrack.com.br/app/">Localizar veículo</a></li>
           <li class=""><a class="blue darken-4 btn waves-effect waves-light white-text ml-4-neg" href="http://telemetria.sattrack.com.br/">Telemetria</a></li>
         </ul>
         <ul class="side-nav" id="mobile">
@@ -33,8 +33,8 @@
           <li data-scroll-nav="2"><a>Funcionalidades</a></li>
           <li data-scroll-nav="3"><a>Sobre</a></li>
           <li><a data-scroll-nav="0">Contato</a></li>
-          <li class="teal accent-4"><a class="white-text" href="http://app.sattrack.com.br/">Localizar veículo</a></li>
-          <li class="blue darken-4"><a class="white-text" href="http://telemetria.sattrack.com.br/">Telemetria</a></li>
+          <li class="teal accent-4 btn waves-effect waves-light"><a class="white-text" href="http://app.sattrack.com.br/">Localizar veículo</a></li>
+          <li class="blue darken-4 btn waves-effect waves-light"><a class="white-text" href="http://telemetria.sattrack.com.br/">Telemetria</a></li>
         </ul>
       </div>
     </nav>
@@ -70,7 +70,7 @@
         <img class="wheel" src="images/animations/car-tier.png" alt="">
       </div>
 
-      <div class="left-banner-slider">
+      <div class="left-banner-slider mob-mt-30">
         <div class="slider valign-wrapper m-tb-16 clip-path-left">
           <!-- <div class="controls">
             <i class="material-icons p-tb-72" onclick="go('prev')">keyboard_arrow_left</i>
@@ -116,53 +116,55 @@
       <i class="material-icons p-tb-72" onclick="go('next')">keyboard_arrow_right</i>
     </div> -->
 
-    <div class="right-banner-slider">
-      <div class="slider valign-wrapper m-tb-16 clip-path-right">
-        <!-- <div class="controls">
-          <i class="material-icons p-tb-72" onclick="go('prev')">keyboard_arrow_left</i>
-        </div> -->
-
-        <section class="section">
-          <ul class="slides slide-wrapper">
-
-            <li>
-              <img src="images/3.jpeg" alt="Unsplashed background img 1">
-              <div class=slide-mask></div>
-              <div class="regular-caption left-caption caption left-align">
-                <h3>Rastreamento onlne de onde estiver</h3>
-                <h5 class="light grey-text text-lighten-3">Acompanhe seu veículo em tempo real do seu celular, tablet ou computador de onde estiver.</h5>
-              </div>
-            </li>
-
-            <li>
-              <img src="images/2.jpg" alt="Unsplashed background img 1">
-              <div class=slide-mask></div>
-              <div class="regular-caption left-caption caption left-align">
-                <h3>Left Aligned Caption</h3>
-                <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-              </div>
-            </li>
-
-            <li>
-              <img src="images/4.jpg" alt="Unsplashed background img 1">
-              <div class=slide-mask></div>
-              <div class="regular-caption left-caption caption left-align">
-                <h3>Right Aligned Caption</h3>
-                <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-              </div>
-            </li>
-
-          </ul>
-        </section>
+    <div class="_container flex">
+      <div class="right-banner-slider mob-mt-30">
+        <div class="slider valign-wrapper m-tb-16 clip-path-right">
+          <!-- <div class="controls">
+            <i class="material-icons p-tb-72" onclick="go('prev')">keyboard_arrow_left</i>
+          </div> -->
+  
+          <section class="section">
+            <ul class="slides slide-wrapper">
+  
+              <li>
+                <img src="images/3.jpeg" alt="Unsplashed background img 1">
+                <div class=slide-mask></div>
+                <div class="regular-caption left-caption caption left-align">
+                  <h3>Rastreamento onlne de onde estiver</h3>
+                  <h5 class="light grey-text text-lighten-3">Acompanhe seu veículo em tempo real do seu celular, tablet ou computador de onde estiver.</h5>
+                </div>
+              </li>
+  
+              <li>
+                <img src="images/2.jpg" alt="Unsplashed background img 1">
+                <div class=slide-mask></div>
+                <div class="regular-caption left-caption caption left-align">
+                  <h3>Left Aligned Caption</h3>
+                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                </div>
+              </li>
+  
+              <li>
+                <img src="images/4.jpg" alt="Unsplashed background img 1">
+                <div class=slide-mask></div>
+                <div class="regular-caption left-caption caption left-align">
+                  <h3>Right Aligned Caption</h3>
+                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                </div>
+              </li>
+  
+            </ul>
+          </section>
+        </div>
       </div>
-    </div>
 
-    <div style="width: 700px;" class="running-car">
-      <div class="place-icon-right pulsy-icon-wrapper">
-        <img class="place-icon" src="images/animations/place-icon.png" alt="">
+      <div style="width: 700px;" class="running-car">
+        <div class="place-icon-right pulsy-icon-wrapper">
+          <img class="place-icon" src="images/animations/place-icon.png" alt="">
+        </div>
+        <img class="truck" src="images/animations/truck.png" alt="">
+        <img class="wheel-truck" src="images/animations/truck-tier.png" alt="">
       </div>
-      <img class="truck" src="images/animations/truck.png" alt="">
-      <img class="wheel-truck" src="images/animations/truck-tier.png" alt="">
     </div>
   </div>
 
@@ -296,10 +298,10 @@
     </footer>
 
   <!--  Scripts-->
-  <!-- <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/scrollIt.js"></script>
-  <script src="js/init.js"></script> -->
+  <script src="js/init.js"></script>
 
 </body>
 
