@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Parallax Template - Materialize</title>
+  <title>SatTrack Rastreamento e Logística</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -20,21 +20,21 @@
         <a href="#" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="menu-ul hide-on-med-and-down">
           <li data-scroll-nav="0"><a>Início</a></li>
-          <li data-scroll-nav="1"><a>Serviços</a></li>
-          <!-- <li data-scroll-nav="2"><a>Funcionalidades</a></li> -->
-          <li data-scroll-nav="3"><a>Sobre</a></li>
+          <li data-scroll-nav="1"><a>Para Você</a></li>
+          <li data-scroll-nav="2"><a>Para Empresas</a></li>
+          <li data-scroll-nav="3"><a>Quem Somos</a></li>
           <li><a data-scroll-nav="0">Contato</a></li>
           <li class=""><a class="teal accent-4 btn waves-effect waves-light white-text" href="http://sattrack.com.br/app/">Localizar veículo</a></li>
           <li class=""><a class="blue darken-4 btn waves-effect waves-light white-text ml-4-neg" href="http://telemetria.sattrack.com.br/">Telemetria</a></li>
         </ul>
         <ul class="side-nav" id="mobile">
           <li data-scroll-nav="0"><a>Início</a></li>
-          <li data-scroll-nav="1"><a>Serviços</a></li>
-          <!-- <li data-scroll-nav="2"><a>Funcionalidades</a></li> -->
-          <li data-scroll-nav="3"><a>Sobre</a></li>
+          <li data-scroll-nav="1"><a>Para Você</a></li>
+          <li data-scroll-nav="2"><a>Para Empresas</a></li>
+          <li data-scroll-nav="3"><a>Quem Somos</a></li>
           <li><a data-scroll-nav="0">Contato</a></li>
-          <li class="teal accent-4 btn waves-effect waves-light"><a class="white-text" href="http://app.sattrack.com.br/">Localizar veículo</a></li>
-          <li class="blue darken-4 btn waves-effect waves-light"><a class="white-text" href="http://telemetria.sattrack.com.br/">Telemetria</a></li>
+          <li class="mobile-btn teal accent-4 btn waves-effect waves-light"><a class="white-text" href="http://app.sattrack.com.br/">Localizar veículo</a></li>
+          <li class="mobile-btn blue darken-4 btn waves-effect waves-light"><a class="white-text" href="http://telemetria.sattrack.com.br/">Telemetria</a></li>
         </ul>
       </div>
     </nav>
@@ -58,23 +58,21 @@
     </div>
   </div>
 
-  <div id="services" data-scroll-index="1" class="section">
-    <div class="_container flex">
-
-      <div id="car" class="running-car topmargin-sm">
-        <div id="car-place-icon" class="pulsy-icon-wrapper place-icon-left">
-          <img class="place-icon" src="images/animations/place-icon.png" alt="">
+  <div class="section">
+    <div id="for-you" data-scroll-index="1" class="_container flex">
+      <div class="full-width-slide valign-wrapper">
+        <div id="car" class="running-car">
+          <div id="car-place-icon" class="pulsy-icon-wrapper place-icon-left">
+            <img class="place-icon" src="images/animations/place-icon.png" alt="">
+          </div>
+          <img class="car" src="images/animations/car.png" alt="">
+          <img class="wheel" src="images/animations/car-tier.png" alt="">
         </div>
-        <img class="car" src="images/animations/car.png" alt="">
-        <img class="wheel" src="images/animations/car-tier.png" alt="">
       </div>
-
       <div class="left-banner-slider mob-mt-30 clip-path-left">
-        <div class="slider carousel carousel-slider valign-wrapper m-tb-16">
-
+        <div class="full-width-slide carousel carousel-slider valign-wrapper m-tb-16">
           <section class="section">
             <ul class="slide-wrapper white-text">
-
               <li class="carousel-item">
                 <div class="regular-caption left-caption">
                   <h3 class="light">Rastreamento online de onde estiver.</h3>
@@ -82,7 +80,6 @@
                 </div>
                 <div class="slide-mask" ></div>
               </li>
-
               <li class="carousel-item">
                 <div class="regular-caption left-caption">
                   <h3 class="light">Rastreamento online de onde estiver.</h3>
@@ -90,7 +87,6 @@
                 </div>
                 <div class="slide-mask" ></div>
               </li>
-
               <li class="carousel-item">
                 <div class="regular-caption left-caption">
                   <h3 class="light">Rastreamento online de onde estiver.</h3>
@@ -98,19 +94,17 @@
                 </div>
                 <div class="slide-mask" ></div>
               </li>
-
             </ul>
           </section>
         </div>
       </div>
     </div>
 
-    <div class="_container flex">
-      <div class="right-banner-slider mob-mt-30">
-        <div class="slider carousel carousel-slider valign-wrapper m-tb-16 clip-path-right">
+    <div data-scroll-index="2" class="_container flex">
+      <div id="for-business" class="right-banner-slider mob-mt-30">
+        <div class="full-width-slide carousel carousel-slider valign-wrapper m-tb-16 clip-path-right">
           <section class="section">
             <ul class="slide-wrapper white-text">
-
               <li class="carousel-item">
                 <div class="regular-caption right-caption">
                   <h3 class="light">Rastreamento online de onde estiver.</h3>
@@ -118,7 +112,6 @@
                 </div>
                 <div class="slide-mask" ></div>
               </li>
-
               <li class="carousel-item">
                 <div class="regular-caption right-caption">
                   <h3 class="light">Rastreamento online de onde estiver.</h3>
@@ -126,7 +119,6 @@
                 </div>
                 <div class="slide-mask" ></div>
               </li>
-
               <li class="carousel-item">
                 <div class="regular-caption right-caption">
                   <h3 class="light">Rastreamento online de onde estiver.</h3>
@@ -134,98 +126,45 @@
                 </div>
                 <div class="slide-mask" ></div>
               </li>
-
             </ul>
           </section>
         </div>
       </div>
 
-      <div id="truck" style="width: 700px;" class="running-car">
-        <div id="truck-place-icon" class="place-icon-right pulsy-icon-wrapper">
-          <img class="place-icon" src="images/animations/place-icon.png" alt="">
+      <div class="full-width-slide valign-wrapper">
+        <div id="truck" style="width: 700px;" class="running-car">
+          <div id="truck-place-icon" class="place-icon-right pulsy-icon-wrapper">
+            <img class="place-icon" src="images/animations/place-icon.png" alt="">
+          </div>
+          <img class="truck" src="images/animations/truck.png" alt="">
+          <img class="truck-tier" src="images/animations/truck-tier.png" alt="">
+          <img class="second-truck-tier" src="images/animations/truck-tier.png" alt="">
         </div>
-        <img class="truck" src="images/animations/truck.png" alt="">
-        <img class="truck-tier" src="images/animations/truck-tier.png" alt="">
-        <img class="second-truck-tier" src="images/animations/truck-tier.png" alt="">
       </div>
     </div>
   </div>
 
-  <!-- <div class="container" data-scroll-index="2">
-    <div class="section p-tb-32">
-
-        Icon Section  
-      <div class="row">
-        <h4 class="light center">Funcionalidades</h4>
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="teal-text"><i class="material-icons">local_gas_station</i></h2>
-            <h5>Gasto de Combustível</h5>
-            <p class="light">Tenha informação sobre o custo de combustível por veículo. Saiba qual o valor gasto em cada percurso e tenha
-              relatório de abastecimento</p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="teal-text"><i class="material-icons">build</i></h2>
-            <h5>Manutenção Preventiva</h5>
-            <p class="light">Cadastre as manutenções periódicas do seu veículo para ter controle e evitar que veículo fique ocioso por manutenções
-              inesperadas.</p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="teal-text"><i class="material-icons">warning</i></h2>
-            <h5>Alertas</h5>
-            <p class="light">Cadastre os eventos e manutenções preventivas e recebas alertas por sms e e-mail. Evitando ociosidade do veículo
-              e mão-de-obra.</p>
-          </div>
-        </div>
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="teal-text"><i class="material-icons">account_circle</i></h2>
-            <h5>Convidado</h5>
-            <p class="light">Ferramenta disponível para que você possa convidar uma ou mais pessoas para ter acesso ao sistema e com isso
-              fazer o monitoramento.</p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="teal-text"><i class="material-icons">live_help</i></h2>
-            <h5>Atendimento</h5>
-            <p class="light">Atendimento personalizado realizado por consultores fixos das áreas comercial, pós-venda e suporte que acompanham
-              todo o histórico de cada cliente.</p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="teal-text"><i class="material-icons">location_city</i></h2>
-            <h5>Abrangência Nacional</h5>
-            <p class="light">Atendimento personalizado em todo território nacional</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div> -->
-
-
-  <div class="container p-tb-32" data-scroll-index="3">
+  <div class="_wrapper" data-scroll-index="3">
+    <h3 class="light center-align">Quem Somos</h3>
     <section class="section">
-      <div class="row">
-        <img class="responsive-img left about-image" src="images/about.png" alt="Unsplashed background img 2">
-        <div class="col s12 m4 left">
-          <div class="about-content">
+      <div class="row about-section">
+        <div class="">
+          <img class="responsive-img left about-image" src="images/about.png" alt="Unsplashed background img 2">
+        </div>
+        <div class="col s12 about-content-wrapper left">
+          <div class="about-sub-wrapper">
+            <i class="material-icons" >location_city</i>
+            <div class="about-content">
               <h4 class="light">Sobre nós</h4>
               <p class="left-align">Atuando no mercado desde de 2007, no segmento de rastreamento e logística de frotas, conta com sistema inteligente atrelados a alta tecnologia, além da experiência de mercado, oferecemos soluções que protegem seu veículo ou frota de forma tranquila e segura.</p>
           </div>
-          <div class="about-content">
+          </div>
+          <div class="about-sub-wrapper">
+            <i class="material-icons">playlist_add_check</i>
+            <div class="about-content">
               <h4 class="offset-s6 light">Nossa missão</h4>
-              <p class="eft-align">Fornecer soluções em rastreamento e telemetria em bens móveis utilizando alta tecnologia, promovendo a otimização de tempo e redução de custo,</p>
+              <p class="left-align">Fornecer soluções em rastreamento e telemetria em bens móveis utilizando alta tecnologia, promovendo a otimização de tempo e redução de custo.</p>
+          </div>
           </div>
         </div>
       </div>
@@ -233,35 +172,15 @@
   </div>
 
   <footer class="page-footer">
-      <div class="container footer-container">
-        <div class="row">
-          <div class="col l3 s12">
-            <div class="footer-contact">
-              <ul>
-                <li>
-                  <h5 class="head-office-city">Londrina</h5>
-                </li>
-                <li>
-                  <i class="material-icons">phone</i>
-                  <a class="white-text" href="#!"><span class="small-phone-number">43</span> <b class="phone-number">3333-3333</b></a>
-                </li>
-                <li>
-                  <img src="./images/whats.png">
-                  <a class="white-text" href="#!"><span class="small-phone-number">43</span> <b class="phone-number">3333-3333</b></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="col l6 s12 logo-footer"></div>
-          <div class="col l6 s12 social-media-icons"> 
-            <a href="https://www.facebook.com/sattrackrastreamento/"><img src="images/facebook.svg"></a>
-            <a href="https://www.instagram.com/sattrackrastreamento/"><img src="images/instagram.svg"></a>
-          </div>
-           
-          <div class="footer-contact on-right-side right offset-s6">
+    <div class="container footer-container">
+      <div class="row">
+        <div class="col l3 s12">
+          <div class="footer-contact">
             <ul>
-              <li><h5 class="head-office-city">Maringá</h5></li>
-              <li>  
+              <li>
+                <h5 class="head-office-city">Londrina</h5>
+              </li>
+              <li>
                 <i class="material-icons">phone</i>
                 <a class="white-text" href="#!"><span class="small-phone-number">43</span> <b class="phone-number">3333-3333</b></a>
               </li>
@@ -272,20 +191,55 @@
             </ul>
           </div>
         </div>
-      </div>
-      <div class="footer-copyright">
-        <div class="container center">
-          <p>Av.Henrique Mansano, 1595 - CEP:  86079-450 - Londrina</p>
+        <div class="col l3 s12 only-mobile">
+          <div class="footer-contact">
+            <ul>
+              <li>
+                <h5 class="head-office-city">Maringá</h5>
+              </li>
+              <li>
+                <i class="material-icons">phone</i>
+                <a class="white-text" href="#!"><span class="small-phone-number">43</span> <b class="phone-number">3333-3333</b></a>
+              </li>
+              <li>
+                <img src="./images/whats.png">
+                <a class="white-text" href="#!"><span class="small-phone-number">43</span> <b class="phone-number">3333-3333</b></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col l6 s12 logo-footer"></div>
+        <div class="col l6 s12 social-media-icons"> 
+          <a href="https://www.facebook.com/sattrackrastreamento/"><img src="images/facebook.svg"></a>
+          <a href="https://www.instagram.com/sattrackrastreamento/"><img src="images/instagram.svg"></a>
+        </div>
+        <div class="footer-contact on-right-side right offset-s6 only-desktop">
+          <ul>
+            <li><h5 class="head-office-city">Maringá</h5></li>
+            <li>  
+              <i class="material-icons">phone</i>
+              <a class="white-text" href="#!"><span class="small-phone-number">43</span> <b class="phone-number">3333-3333</b></a>
+            </li>
+            <li>
+              <img src="./images/whats.png">
+              <a class="white-text" href="#!"><span class="small-phone-number">43</span> <b class="phone-number">3333-3333</b></a>
+            </li>
+          </ul>
         </div>
       </div>
-    </footer>
+    </div>
+    <div class="footer-copyright">
+      <div class="container center">
+        <p>Av.Henrique Mansano, 1595 - CEP:  86079-450 - Londrina</p>
+      </div>
+    </div>
+  </footer>
 
   <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/jquery-3.2.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/scrollIt.js"></script>
   <script src="js/init.js"></script>
-
 </body>
 
 </html>

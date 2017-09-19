@@ -10,19 +10,48 @@
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 </head>
 <body>
-  <div data-scroll-index="1" class="section">
-    <div class="_container flex">
-
-      <div id="car" class="running-car topmargin-sm">
-        <div id="car-place-icon" class="pulsy-icon-wrapper place-icon-left">
-          <img class="place-icon" src="images/animations/place-icon.png" alt="">
+    <div data-scroll-index="0" id="home" class="navbar-fixed">
+      <nav class="white">
+        <div class="nav-wrapper _nav-wrapper-container">
+          <a href="#!" class="brand-logo"><img src="images/logo.svg" alt="SatTrack Rastreamento e Logística"></a>
+          <a href="#" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+          <ul class="menu-ul hide-on-med-and-down">
+            <li data-scroll-nav="0"><a>Início</a></li>
+            <li data-scroll-nav="1"><a>Serviços</a></li>
+            <!-- <li data-scroll-nav="2"><a>Funcionalidades</a></li> -->
+            <li data-scroll-nav="3"><a>Sobre</a></li>
+            <li><a data-scroll-nav="0">Contato</a></li>
+            <li class=""><a class="teal accent-4 btn waves-effect waves-light white-text" href="http://sattrack.com.br/app/">Localizar veículo</a></li>
+            <li class=""><a class="blue darken-4 btn waves-effect waves-light white-text ml-4-neg" href="http://telemetria.sattrack.com.br/">Telemetria</a></li>
+          </ul>
+          <ul class="side-nav" id="mobile">
+            <li data-scroll-nav="0"><a>Início</a></li>
+            <li data-scroll-nav="1"><a>Serviços</a></li>
+            <!-- <li data-scroll-nav="2"><a>Funcionalidades</a></li> -->
+            <li data-scroll-nav="3"><a>Sobre</a></li>
+            <li><a data-scroll-nav="0">Contato</a></li>
+            <li class="teal accent-4 btn waves-effect waves-light"><a class="white-text" href="http://app.sattrack.com.br/">Localizar veículo</a></li>
+            <li class="blue darken-4 btn waves-effect waves-light"><a class="white-text" href="http://telemetria.sattrack.com.br/">Telemetria</a></li>
+          </ul>
         </div>
-        <img class="car" src="images/animations/car.png" alt="">
-        <img class="wheel" src="images/animations/car-tier.png" alt="">
+      </nav>
+    </div>
+
+  <div class="section">
+    <div data-scroll-index="1" class="_container flex">
+
+      <div class="full-width-slide valign-wrapper">
+        <div id="car" class="running-car">
+          <div id="car-place-icon" class="pulsy-icon-wrapper place-icon-left">
+            <img class="place-icon" src="images/animations/place-icon.png" alt="">
+          </div>
+          <img class="car" src="images/animations/car.png" alt="">
+          <img class="wheel" src="images/animations/car-tier.png" alt="">
+        </div>
       </div>
 
       <div class="left-banner-slider mob-mt-30 clip-path-left">
-        <div class="carousel carousel-slider valign-wrapper m-tb-16">
+        <div class="full-width-slide carousel carousel-slider valign-wrapper m-tb-16">
 
           <section class="section">
             <ul class="slide-wrapper white-text">
@@ -58,8 +87,8 @@
     </div>
 
     <div class="_container flex">
-      <div class="right-banner-slider mob-mt-30">
-        <div class="carousel carousel-slider valign-wrapper m-tb-16 clip-path-right">
+      <div data-scroll-index="3" class="right-banner-slider mob-mt-30">
+        <div class="full-width-slide carousel carousel-slider valign-wrapper m-tb-16 clip-path-right">
           <section class="section">
             <ul class="slide-wrapper white-text">
 
@@ -92,19 +121,22 @@
         </div>
       </div>
 
-      <div id="truck" style="width: 700px;" class="running-car">
-        <div id="truck-place-icon" class="place-icon-right pulsy-icon-wrapper">
-          <img class="place-icon" src="images/animations/place-icon.png" alt="">
+      <div class="full-width-slide valign-wrapper">
+        <div id="truck" style="width: 700px;" class="running-car">
+          <div id="truck-place-icon" class="place-icon-right pulsy-icon-wrapper">
+            <img class="place-icon" src="images/animations/place-icon.png" alt="">
+          </div>
+          <img class="truck" src="images/animations/truck.png" alt="">
+          <img class="truck-tier" src="images/animations/truck-tier.png" alt="">
+          <img class="second-truck-tier" src="images/animations/truck-tier.png" alt="">
         </div>
-        <img class="truck" src="images/animations/truck.png" alt="">
-        <img class="truck-tier" src="images/animations/truck-tier.png" alt="">
-        <img class="second-truck-tier" src="images/animations/truck-tier.png" alt="">
       </div>
     </div>
   </div>
 </body>
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
+  <script src="js/scrollIt.js"></script>
   <script>
     var $car = $('.car'),
         $truck = $('.truck'),
@@ -150,5 +182,13 @@
     })(jQuery);
 
     Materialize.scrollFire(options);
+
+    $.scrollIt({
+      easing: 'linear',
+      scrollTime: 1000,  
+      activeClass: 'active',
+      onPageChange: null,
+      topOffset: -46
+    });
   </script>
 </html>

@@ -19,9 +19,9 @@ p {
   line-height: 2rem;
 }
 
-.carousel {
+.full-width-slide {
   min-height: 600px;
-  height: 100vh;
+  height: 94vh;
 }
 
 .button-collapse {
@@ -34,9 +34,10 @@ p {
   line-height: 0;
   color: rgba(255,255,255,.9);
 }
-  .parallax-container .section {
-    width: 100%;
-  }
+
+.parallax-container .section {
+  width: 100%;
+}
 
 @media only screen and (max-width : 992px) {
   .parallax-container .section {
@@ -69,8 +70,8 @@ footer.page-footer {
   padding: 16% 0 0;
 }
 
-#services {
-  margin-top: -48px;  
+#for-you {
+  margin-top: -32px;  
 }
 
 #sidenav-overlay {
@@ -144,8 +145,33 @@ footer.page-footer {
   width: 65%;
 }
 
+._wrapper {
+  width: 100%;
+  max-width: 1480px;
+  padding: 24px;
+  margin: 0 auto;
+}
+
 .about-image {
   max-width: 60% !important;
+  border: 5px solid #ffffff;
+  box-shadow: 0 0 16px 10px #888888;
+}
+
+.about-section i {
+  float: left;
+  font-size: 40pt;
+  color: #009688;
+}
+
+.about-content-wrapper {
+  margin-left: 24px !important;
+  max-width: 30%;
+  display: block;
+}
+
+.about-content p, h4{
+  margin-left: 70px;
 }
 
 .regular-caption {
@@ -154,6 +180,12 @@ footer.page-footer {
 
 .right-caption {
   width: 70% !important;
+}
+
+.mobile-btn {
+  width: 230px;
+  height: 46px;
+  margin-left: 35px;
 }
 
 /* helpers */
@@ -221,14 +253,14 @@ img.wheel {
 	-moz-transition: all 1.2s ease-out;
 	transition: all 1.2s ease-out;
   margin-left: -360px;
-  margin-top: -59px;
+  margin-top: -132px;
 }
 
 img.wheel {
   position: absolute;
   width: 141px;
   left: 400px;
-  bottom: 28px;
+  bottom: 32px;
   z-index: 1;
 }
 
@@ -270,7 +302,7 @@ img.second-truck-tier {
 }
 
 .place-icon-right {
-  margin-top: 62px;
+  margin-top: 172px;
   margin-left: 270px;
 }
 
@@ -307,7 +339,7 @@ img.second-truck-tier {
 	}
 	0% {
 		opacity: 0;
-		transform: translate3d(0, -180px, 0);
+		transform: translate3d(0, -232px, 0);
 	}
 	60% {
 		opacity: 1;
@@ -410,11 +442,11 @@ img.second-truck-tier {
 }
 
 .on-right-side {
-  margin-top: -112px;
+  margin-top: -100px;
 }
 
 .menu-ul {
-  margin-left: 536px;
+  margin-left: 32%;
 }
 
 .slider .slides li .caption {
@@ -426,14 +458,17 @@ img.second-truck-tier {
   bottom: 16px !important;
 }
 
+.only-mobile {
+  display: none;
+}
+
 @media screen and (min-width: 1595px) and (max-width: 1602px) {
   ._nav-wrapper-container {
     margin: 0 0 0 82px;
   }
 
   .place-icon-right {
-    margin-left: 1117px;
-    margin-top: -638px;
+    margin-top: 4px !important;
   }
 }
 
@@ -448,6 +483,27 @@ img.second-truck-tier {
     bottom: 48px;
   }
 
+  .slide-wrapper, .slider {
+    height: 100vh;
+    min-height: 600px !important;
+  }
+
+  .menu-ul {
+    margin-left: 26%;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .place-icon-right {
+    margin-top: -28px;
+  }
+}
+
+@media screen and (max-width: 1360px) {
+  #index-banner {
+    padding: 12% 0 0;
+  }
+
   .left-banner-slider {
     width: 50%;
   }
@@ -456,22 +512,8 @@ img.second-truck-tier {
     width: 50%;
   }
 
-  .slide-wrapper, .slider {
-    height: 100vh;
-    min-height: 600px !important;
-  }
-}
-
-@media screen and (max-width: 1366px) {
-  #index-banner {
-    padding: 12% 0 0;
-  }
-}
-
-@media screen and (max-width: 1300px) {
   .clip-path-left {
     clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%);
-    /* left: 0; */
   }
   
   .clip-path-right {
@@ -481,9 +523,64 @@ img.second-truck-tier {
   .left-caption {
     padding-left: 6% !important;
   }
-} 
+
+  .menu-ul {
+    margin-left: 20%;
+  }
+}
+
+@media screen and (max-width: 1144px) {
+  nav a.button-collapse {
+    display: block !important;
+  }
+
+  .menu-ul {
+    display: none;
+  }
+
+  .brand-logo {
+   left: 32%;
+  }
+
+  .about-content-wrapper {
+    float: left;
+    max-width: 90% !important;
+  }
+
+  .about-image {
+    max-width: 100% !important;
+  }
+
+  .about-sub-wrapper {
+    float: left;
+    max-width: 90% !important;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+
+  .left-banner-slider {
+    width: 43.5%;
+  }
+  
+  .right-banner-slider {
+    width: 43.5%;
+  }
+
+  .brand-logo {
+    left: 40%;
+   }
+}
 
 @media screen and (max-width: 1020px) {
+  .only-mobile {
+    display: block;
+  }
+
+  .only-desktop {
+    display: none;
+  }
+
   .running-car {
     display: none;
   }

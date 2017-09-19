@@ -1,37 +1,16 @@
-let playing,
-    _counter = 1;
-
-function autoplay(speed) {
-  if (typeof speed === 'number' && speed >= 1500) {
-    setTimeout(() => {
-      $('.slider').slider('next');
-      $('.slider').slider('pause');
-
-      playing = setTimeout(() => {
-        autoplay(speed);
-      }, (speed * 3)) ;
-    }, speed);
-  }
+function autoplay() {
+  $('.carousel').carouesel('next');
+  setTimeout(autoplay(), 1200);
 }
 
-function go(where) {
-  if (where && typeof where === 'string') {
-    clearTimeout(playing);
-
-    if (where === 'next') {
-      $('.slider').slider('next');
-      autoplay();
-      
-      return;
-    }
-    
-    if (where === 'prev') {
-      $('.slider').slider('prev');
-      autoplay();
-
-      return;
-    }
-  }
+function scrolleedTo(element) {
+  element = document.querySelector(element);
+  
+  element.scrollIntoView({ 
+    alignToTop: true,
+    behavior: 'smooth',
+    block: 'start'
+  });
 }
 
 function mobileViewHelper(element) {
@@ -40,23 +19,13 @@ function mobileViewHelper(element) {
   }
 }
 
-function isScrolledIntoView(elem) {
-  var docViewTop = $(window).scrollTop();
-  var docViewBottom = docViewTop + $(window).height();
-
-  var elemTop = $(elem).offset().top + 370;
-  var elemBottom = elemTop + $(elem).height() - 800;
-
-  return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
-}
-
 (function($){
   $.scrollIt({
     easing: 'linear',
     scrollTime: 1000,  
     activeClass: 'active',
     onPageChange: null,
-    topOffset: -16
+    topOffset: -46
   });
   
   $(function(){
@@ -83,8 +52,6 @@ function isScrolledIntoView(elem) {
       $carTier = $('.wheel'),
       $truckTier = $('.truck-tier'),
       $secTruckTier = $('.second-truck-tier'),
-      $placeIconLeft = $('.place-icon-left'),
-      $placeIconRight = $('.place-icon-right'),
       options = [
         { 
           selector: '.car',
@@ -92,7 +59,7 @@ function isScrolledIntoView(elem) {
           callback: function(el, jQuery) {
             $car.velocity({ translateX: '285px' }, { duration: 650 });
             $carTier.velocity({ translateX: '285px', rotateZ: '600deg' }, { duration: 650 });
-            $($placeIconLeft).addClass('bounceInDown');
+            $('.place-icon-left').addClass('bounceInDown');
           }
         },
         { 
@@ -102,7 +69,7 @@ function isScrolledIntoView(elem) {
             $truck.velocity({ translateX: '-285px' }, { duration: 650 });
             $truckTier.velocity({ translateX: '-285px', rotateZ: '-600deg' }, { duration: 650 });
             $secTruckTier.velocity({ translateX: '-285px', rotateZ: '-600deg' }, { duration: 1825 });
-            $($placeIconRight).addClass('bounceInDown');
+            $('.place-icon-right').addClass('bounceInDown');
           }
         }
       ];
