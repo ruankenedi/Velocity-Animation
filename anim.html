@@ -28,7 +28,7 @@
             <ul class="slide-wrapper white-text">
 
               <li class="carousel-item">
-                <div class="">
+                <div class="regular-caption left-caption">
                   <h3 class="light">Rastreamento online de onde estiver.</h3>
                   <h5 class="light grey-text text-lighten-2">Acompanhe seu veículo em tempo real do seu celular, tablet ou computador de onde estiver.</h5>
                 </div>
@@ -36,21 +36,19 @@
               </li>
 
               <li class="carousel-item">
-                <img src="images/2.jpg" alt="Unsplashed background img 1">
-                <div class="slide-mask"></div>
-                <div class="left-caption regular-caption caption left-align">
-                  <h3>Left Aligned Caption</h3>
-                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                <div class="regular-caption left-caption">
+                  <h3 class="light">Rastreamento online de onde estiver.</h3>
+                  <h5 class="light grey-text text-lighten-2">Acompanhe seu veículo em tempo real do seu celular, tablet ou computador de onde estiver.</h5>
                 </div>
+                <div class="slide-mask" ></div>
               </li>
 
               <li class="carousel-item">
-                <img src="images/4.jpg" alt="Unsplashed background img 1">
-                <div class="slide-mask"></div>
-                <div class="left-caption regular-caption caption left-align">
-                  <h3>Right Aligned Caption</h3>
-                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                <div class="regular-caption left-caption">
+                  <h3 class="light">Rastreamento online de onde estiver.</h3>
+                  <h5 class="light grey-text text-lighten-2">Acompanhe seu veículo em tempo real do seu celular, tablet ou computador de onde estiver.</h5>
                 </div>
+                <div class="slide-mask" ></div>
               </li>
 
             </ul>
@@ -61,37 +59,34 @@
 
     <div class="_container flex">
       <div class="right-banner-slider mob-mt-30">
-        <div class="slider valign-wrapper m-tb-16 clip-path-right">
+        <div class="slider carousel carousel-slider valign-wrapper m-tb-16 clip-path-right">
           <section class="section">
-            <ul class="slides slide-wrapper">
-  
-              <li>
-                <img src="images/3.jpeg" alt="Unsplashed background img 1">
-                <div class="slide-mask"></div>
-                <div class="regular-caption caption left-align">
-                  <h3>Rastreamento onlne de onde estiver</h3>
-                  <h5 class="light grey-text text-lighten-3">Acompanhe seu veículo em tempo real do seu celular, tablet ou computador de onde estiver.</h5>
+            <ul class="slide-wrapper white-text">
+
+              <li class="carousel-item">
+                <div class="regular-caption right-caption">
+                  <h3 class="light">Rastreamento online de onde estiver.</h3>
+                  <h5 class="light grey-text text-lighten-2">Acompanhe seu veículo em tempo real do seu celular, tablet ou computador de onde estiver.</h5>
                 </div>
+                <div class="slide-mask" ></div>
               </li>
-  
-              <li>
-                <img src="images/2.jpg" alt="Unsplashed background img 1">
-                <div class="slide-mask"></div>
-                <div class="regular-caption caption left-align">
-                  <h3>Left Aligned Caption</h3>
-                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+
+              <li class="carousel-item">
+                <div class="regular-caption right-caption">
+                  <h3 class="light">Rastreamento online de onde estiver.</h3>
+                  <h5 class="light grey-text text-lighten-2">Acompanhe seu veículo em tempo real do seu celular, tablet ou computador de onde estiver.</h5>
                 </div>
+                <div class="slide-mask" ></div>
               </li>
-  
-              <li>
-                <img src="images/4.jpg" alt="Unsplashed background img 1">
-                <div class="slide-mask"></div>
-                <div class="regular-caption caption left-align">
-                  <h3>Right Aligned Caption</h3>
-                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+
+              <li class="carousel-item">
+                <div class="regular-caption right-caption">
+                  <h3 class="light">Rastreamento online de onde estiver.</h3>
+                  <h5 class="light grey-text text-lighten-2">Acompanhe seu veículo em tempo real do seu celular, tablet ou computador de onde estiver.</h5>
                 </div>
+                <div class="slide-mask" ></div>
               </li>
-  
+
             </ul>
           </section>
         </div>
@@ -125,7 +120,7 @@
             callback: function(el, jQuery) {
               $car.velocity({ translateX: '285px' }, { duration: 650 });
               $carTier.velocity({ translateX: '285px', rotateZ: '600deg' }, { duration: 650 });
-              el, $($placeIconLeft).addClass('bounceInDown');
+              $($placeIconLeft).addClass('bounceInDown');
             }
           },
           { 
@@ -135,6 +130,7 @@
               $truck.velocity({ translateX: '-285px' }, { duration: 650 });
               $truckTier.velocity({ translateX: '-285px', rotateZ: '-600deg' }, { duration: 650 });
               $secTruckTier.velocity({ translateX: '-285px', rotateZ: '-600deg' }, { duration: 1825 });
+              $($placeIconRight).addClass('bounceInDown');
             }
           }
         ];

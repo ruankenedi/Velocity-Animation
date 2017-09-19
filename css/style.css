@@ -64,6 +64,10 @@ footer.page-footer {
   padding: 16% 0 0;
 }
 
+#services {
+  margin-top: -48px;  
+}
+
 #sidenav-overlay {
   z-index: 900 !important;
 }
@@ -137,6 +141,14 @@ footer.page-footer {
 
 .about-image {
   max-width: 60% !important;
+}
+
+.regular-caption {
+  padding: 6%;
+}
+
+.right-caption {
+  width: 70% !important;
 }
 
 /* helpers */
@@ -234,7 +246,7 @@ img.truck-tier {
 img.truck-tier,
 img.second-truck-tier {
   position: absolute;
-  bottom: 41px;
+  bottom: 44px;
   z-index: 1;
 }
 
@@ -276,7 +288,8 @@ img.second-truck-tier {
 }
 
 .left-caption {
-  left: 26% !important;
+  padding-left: 26% !important;
+  width: 92%;  
 }
 
 @keyframes bounceInDown {
@@ -431,11 +444,11 @@ img.second-truck-tier {
   }
 
   .left-banner-slider {
-    width: 60%;
+    width: 50%;
   }
   
   .right-banner-slider {
-    width: 60%;
+    width: 50%;
   }
 
   .slide-wrapper, .slider {
@@ -453,11 +466,15 @@ img.second-truck-tier {
 @media screen and (max-width: 1300px) {
   .clip-path-left {
     clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%);
-    left: 0;
+    /* left: 0; */
   }
   
   .clip-path-right {
     clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%);
+  }
+
+  .left-caption {
+    padding-left: 6% !important;
   }
 } 
 
