@@ -19,6 +19,11 @@ p {
   line-height: 2rem;
 }
 
+.carousel {
+  min-height: 600px;
+  height: 100vh;
+}
+
 .button-collapse {
   color: #26a69a;
 }

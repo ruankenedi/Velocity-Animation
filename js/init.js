@@ -63,8 +63,10 @@ function isScrolledIntoView(elem) {
 
     $(document).ready(function(){ 
       $('.carousel.carousel-slider').carousel({
+        fullWidth: true,
         indicators: true,
-        padding: 8
+        padding: 8,
+        dist: 0
       });
     });
 
