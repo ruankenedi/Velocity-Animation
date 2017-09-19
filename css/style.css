@@ -160,7 +160,7 @@ footer.page-footer {
 .about-image {
   max-width: 60% !important;
   border: solid 5px #fff !important;
-  box-shadow: 0 0 40px #888888;
+  box-shadow: 0 0 16px 10px #888888;
 }
 
 /* helpers */
