@@ -1,35 +1,38 @@
 const path = require('path');
 const glob = require('glob');
-
 const webpack = require('webpack');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const PurifyCSSPlugin = require('purifycss-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: './index',
   plugins: [
     new HtmlWebpackPlugin({
-      template: './index.html'
+      template: './index.html',
+      hash: true,
     }),
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery'
+    new ExtractTextPlugin("styles.css"),
+    new PurifyCSSPlugin({
+      // Give paths to parse for rules. These should be absolute!
+      paths: glob.sync(path.join(__dirname, '/*.html')),
+      minimize: true
     }),
-    new ExtractTextPlugin("css/styles.css"),
-    new CopyWebpackPlugin([
-      { from: './images', to: 'images/'}
-    ]),
     new UglifyJSPlugin()
   ],
   output: {
     path: path.resolve(__dirname, './dist/'),
-    publicPath: './', 
-    filename: 'js/bundle.js'
+    // publicPath: './', 
+    filename: 'js/[name].bundle.js'
   },
   module: {
-      rules: [
+    rules: [
+      {
+        test: /\.html$/,
+        use: 'html-loader'
+      },
       {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
@@ -38,16 +41,17 @@ module.exports = {
         })
       },
       {
-        test: /\.(png|jpg|jpeg|gif)$/,
-        loader: 'url-loader'
-      },
-      { 
-        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'url-loader?limit=10000&mimetype=application/font-woff'
-      },
-      {
-        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'file-loader'
+        test: /\.(png|jpg|jpeg|gif|svg|ttf|eot|woff|woff2)$/,
+        use: [
+          {
+            loader: 'file-loader',
+              options: {
+                name: '[hash].[ext]',
+                outputPath: 'assets/',
+                // publicPath: '../',
+            }  
+          }
+        ]
       }
     ]
   }

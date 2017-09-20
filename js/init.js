@@ -7,15 +7,15 @@ function autoplay() {
   }, 1500);
 }
 
-function scrolleedTo(element) {
-  element = document.querySelector(element);
+// function scrolleedTo(element) {
+//   element = document.querySelector(element);
   
-  element.scrollIntoView({ 
-    alignToTop: true,
-    behavior: 'smooth',
-    block: 'start'
-  });
-}
+//   element.scrollIntoView({ 
+//     alignToTop: true,
+//     behavior: 'smooth',
+//     block: 'start'
+//   });
+// }
 
 function mobileViewHelper(element) {
   if (screen.width <= 1020 && typeof element === 'string') {
