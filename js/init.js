@@ -1,6 +1,10 @@
 function autoplay() {
-  $('.carousel').carouesel('next');
-  setTimeout(autoplay(), 1200);
+  setTimeout(() => {
+    $('.carousel').carousel('next')
+    setTimeout(() => {
+      autoplay();
+    }, 4000);
+  }, 1500);
 }
 
 function scrolleedTo(element) {
@@ -76,6 +80,7 @@ function mobileViewHelper(element) {
 
   mobileViewHelper('.running-car');
   Materialize.scrollFire(options);
+  autoplay();
 
   });
 })(jQuery);

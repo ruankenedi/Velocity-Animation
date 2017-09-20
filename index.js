@@ -15,8 +15,12 @@ require('materialize-css/dist/css/materialize.min.css');
 require('./css/style.css');
 
 function autoplay() {
-  $('.carousel').carousel('next');
-  setTimeout(autoplay(), 1200);
+  setTimeout(() => {
+    $('.carousel').carousel('next')
+    setTimeout(() => {
+      autoplay();
+    }, 4000);
+  }, 1500);
 }
 
 // function scrolleedTo(element) {

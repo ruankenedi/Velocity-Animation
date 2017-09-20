@@ -567,7 +567,8 @@ img.second-truck-tier {
 
   .about-content-wrapper {
     float: left;
-    max-width: 90% !important;
+    max-width: 1000% !important;
+    margin: 8px;
   }
 
   .about-image {
@@ -576,7 +577,8 @@ img.second-truck-tier {
 
   .about-sub-wrapper {
     float: left;
-    max-width: 90% !important;
+    max-width: 100% !important;
+    margin-left: -32px;
   }
 }
 
