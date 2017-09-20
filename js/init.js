@@ -105,7 +105,7 @@ function isScrolledIntoView(elem) {
     });
   });
 
-  mobileViewHelper('.running-car');
+  mobileViewHelper('.running-car'); 
 
   });
 })(jQuery);
