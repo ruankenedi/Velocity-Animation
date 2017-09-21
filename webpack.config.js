@@ -1,35 +1,42 @@
 const path = require('path');
 const glob = require('glob');
-
 const webpack = require('webpack');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: './index.js',
+  entry: {
+    index: './index',
+    modules: './src/js/module'
+  },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './index.html'
+      template: './src/index.html',
+      hash: true,
     }),
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery'
+    new ExtractTextPlugin("styles.css"),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'modules'
     }),
-    new ExtractTextPlugin("css/styles.css"),
-    new CopyWebpackPlugin([
-      { from: './images', to: 'images/'}
-    ]),
     new UglifyJSPlugin()
   ],
   output: {
-    path: path.resolve(__dirname, './dist/'),
-    publicPath: './', 
-    filename: 'js/bundle.js'
+    path: path.resolve(__dirname, 'dist/'),
+    filename: 'js/[name].bundle.js'
   },
   module: {
-      rules: [
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: "babel-loader"
+      },
+      {
+        test: /\.html$/,
+        use: 'html-loader'
+      },
       {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
@@ -38,17 +45,17 @@ module.exports = {
         })
       },
       {
-        test: /\.(png|jpg|jpeg|gif)$/,
-        loader: 'url-loader'
+        test: /\.(png|jpg|jpeg|mp4|mpeg|gif|svg|ttf|eot|woff|woff2)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[hash].[ext]',
+              outputPath: 'assets/',
+            }  
+          }
+        ]
       },
-      { 
-        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'url-loader?limit=10000&mimetype=application/font-woff'
-      },
-      {
-        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'file-loader'
-      }
     ]
   }
 };
