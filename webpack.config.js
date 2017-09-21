@@ -1,7 +1,6 @@
 const path = require('path');
 const glob = require('glob');
 const webpack = require('webpack');
-// const PurifyCSSPlugin = require('purifycss-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -9,27 +8,22 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: {
-    index: './index'
+    index: './index',
+    modules: './src/js/module'
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './index.html',
+      template: './src/index.html',
       hash: true,
     }),
     new ExtractTextPlugin("styles.css"),
-    // new PurifyCSSPlugin({
-    //   // Give paths to parse for rules. These should be absolute!
-    //   paths: glob.sync(path.join(__dirname, '/*.html')),
-    //   minimize: true
-    // }),
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'main'
+      name: 'modules'
     }),
     new UglifyJSPlugin()
   ],
   output: {
-    path: path.resolve(__dirname, './dist/'),
-    // publicPath: './', 
+    path: path.resolve(__dirname, 'dist/'),
     filename: 'js/[name].bundle.js'
   },
   module: {
@@ -51,17 +45,17 @@ module.exports = {
         })
       },
       {
-        test: /\.(png|jpg|jpeg|gif|mp4|svg|ttf|eot|woff|woff2)$/,
+        test: /\.(png|jpg|jpeg|mp4|mpeg|gif|svg|ttf|eot|woff|woff2)$/,
         use: [
           {
             loader: 'file-loader',
-              options: {
-                name: '[hash].[ext]',
-                outputPath: 'assets/',
+            options: {
+              name: '[hash].[ext]',
+              outputPath: 'assets/',
             }  
           }
         ]
-      }
+      },
     ]
   }
 };
