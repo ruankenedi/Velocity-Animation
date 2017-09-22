@@ -12,6 +12,7 @@ module.exports = {
     modules: './src/js/module'
   },
   plugins: [
+    new CleanWebpackPlugin('./dist'),
     new HtmlWebpackPlugin({
       template: './src/index.html',
       hash: true,
