@@ -6,6 +6,7 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const PurifyCSSPlugin = require('purifycss-webpack');
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   entry: {
@@ -22,6 +23,7 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'modules'
     }),
+    // new BundleAnalyzerPlugin(),
     new UglifyJSPlugin()
   ],
   output: {
@@ -63,7 +65,7 @@ module.exports = {
         })
       },
       {
-        test: /\.(png|jpg|jpeg|mp4|mpeg|gif|svg|ttf|eot|woff|woff2)$/,
+        test: /\.(png|jpg|jpeg|mp4|mpeg|gif|ico|svg|ttf|eot|woff|woff2)$/,
         use: [
           {
             loader: 'file-loader',

@@ -360,8 +360,7 @@ img.second-truck-tier {
   linear-gradient(
     rgba(0, 0, 0, 0.60), 
     rgba(0, 0, 0, 0.60) 
-  ),
-  url(../images/3.jpeg);
+  );
   background-position: center;
   background-size: cover;
   width: 100%;

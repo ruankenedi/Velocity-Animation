@@ -82,7 +82,7 @@ function autoplay() {
       ];
 
     Materialize.scrollFire(options);
-    autoplay();
+    // autoplay();
 
   });
 })(jQuery);
