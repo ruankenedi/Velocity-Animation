@@ -34,10 +34,10 @@ function addElement(element, src, elmClass, title, content) {
 
   if (element === 'slide' && elmClass) {
     parent = $('<li></li>').addClass('carousel-item');
-    caption = div.addClass('regular-caption' + elmClass);
-    headline = $('<h3></h3>').addClass('light');
-    p = $('<p></p>').addClass('light grey-text text-lighten-2');
-    image = div
+    caption = $('<div></div>').addClass('regular-caption ' + elmClass);
+    headline = $('<h3></h3>').addClass('light').html(title);
+    p = $('<h5></h5>').addClass('light grey-text text-lighten-2').html(content);
+    image = $('<div></div>')
       .addClass('slide-mask')
       .css({
         'background': 'linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),url(' + require('./src/images/' + src) +')',
@@ -50,10 +50,18 @@ function addElement(element, src, elmClass, title, content) {
         'z-index': '-1'
       });
 
-    caption.append(headline).html(title);
-    caption.append(p).html(content);
+    caption.append(headline);
+    caption.append(p);
     parent.append(caption);
     parent.append(image);
+
+    if (elmClass === 'left-caption') {
+      return $('.left-slide').append(parent);
+    }
+
+    if (elmClass === 'right-caption') {
+      return $('.right-slide').append(parent);
+    }
 
     return;
   }
@@ -86,6 +94,7 @@ $(window).resize(function() {
 
 
 addElement('slide', 'about.png', 'left-caption', 'About', 'this is a dummy text');
+addElement('slide', 'about.png', 'right-caption', 'About', 'this is a dummy text');
 
 
 //stuffs.css
