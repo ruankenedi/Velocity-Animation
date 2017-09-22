@@ -6,7 +6,7 @@ require('./src/js/init.js');
 const headerElement = $('.header-background');
 let parent, caption, headline, p, image, div = $('<div></div>');
 
-function addHeaderBackground(element, src, elmClass) {
+function addElement(element, src, elmClass, title, content) {
   if (element === 'img') {
     $('.video-background').remove();
     $(headerElement)
@@ -51,7 +51,7 @@ function addHeaderBackground(element, src, elmClass) {
       });
 
     caption.append(headline).html(title);
-    caption.append(p).html(text);
+    caption.append(p).html(content);
     parent.append(caption);
     parent.append(image);
 
@@ -63,17 +63,17 @@ function renderElement() {
   const width = screen.width;
 
   if (width <= 500) {
-    addHeaderBackground('img', 'phone-bg.jpg');
+    addElement('img', 'phone-bg.jpg');
 
     return;
   }
   if (width <= 768) {
-    addHeaderBackground('img', 'tablet-bg.jpg');
+    addElement('img', 'tablet-bg.jpg');
 
     return;
   }
   if (width > 768) {
-    addHeaderBackground('video', 'video.mp4', 'video-background');
+    addElement('video', 'video.mp4', 'video-background');
 
     return;
   }
@@ -83,6 +83,9 @@ renderElement();
 $(window).resize(function() {
   renderElement();
 });
+
+
+addElement('slide', 'about.png', 'left-caption', 'About', 'this is a dummy text');
 
 
 //stuffs.css
