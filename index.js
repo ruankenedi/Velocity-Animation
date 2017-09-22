@@ -19,7 +19,6 @@ $('.header-background').append($('<video></video>')
 );
 
 //stuffs.css
-require('materialize-css/dist/css/materialize.css');
 require('materialize-css/dist/css/materialize.min.css');
 require('./src/fonts/icons/material-icons.css');
 require('./src/css/style.css');
