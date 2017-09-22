@@ -18,4 +18,4 @@ npm run build
 npm run watch
 ```
 
-This project has been made by @maurojr and @ruankenedi and I.
+This project has been made by @maurojr, @ruankenedi and I.
