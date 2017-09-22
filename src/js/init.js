@@ -1,10 +1,8 @@
 function autoplay() {
   setTimeout(() => {
     $('.carousel').carousel('next')
-    setTimeout(() => {
-      autoplay();
-    }, 4000);
-  }, 1500);
+    autoplay();
+  }, 4000);
 }
 
 (function ($) {
@@ -82,7 +80,7 @@ function autoplay() {
           }
         }
       ];
-      
+
     Materialize.scrollFire(options);
     autoplay();
 
