@@ -2,6 +2,12 @@
 
 Simple website based on materialize parallax theme.
 
+### install dependencies
+```bash
+npm install
+```
+
+
 ### build
 ```bash
 npm run build

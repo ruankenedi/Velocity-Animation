@@ -168,10 +168,6 @@ footer.page-footer {
 
 .about-image {
   max-width: 60% !important;
-<<<<<<< HEAD:css/style.css
-  border: solid 5px #fff !important;
-  box-shadow: 0 0 16px 10px #888888;
-=======
   border: 5px solid #ffffff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
 }
@@ -205,7 +201,6 @@ footer.page-footer {
   width: 230px;
   height: 46px;
   margin-left: 35px;
->>>>>>> 6250a6dc32aa05144607689c4eefbb39cc93a0c6:src/css/style.css
 }
 
 /* helpers */
@@ -463,22 +458,6 @@ img.second-truck-tier {
 
 .on-right-side {
   margin-top: -100px;
-<<<<<<< HEAD:css/style.css
-}
-
-.btn-cta-vehicle:hover {
-    background-color: #00b278 !important;
-}
-
-.btn-cta-telemetry:hover {
-  background-color: #1832D8 !important;
-}
-
-
-@media screen and (max-width: 1020px) {
-  .running-car {
-    display: none;
-=======
 }
 
 .menu-ul {
@@ -546,7 +525,6 @@ img.second-truck-tier {
   
   .right-banner-slider {
     width: 50%;
->>>>>>> 6250a6dc32aa05144607689c4eefbb39cc93a0c6:src/css/style.css
   }
 
   .clip-path-left {
@@ -660,12 +638,8 @@ img.second-truck-tier {
     margin: 0;
     float: none !important;
   }
-<<<<<<< HEAD:css/style.css
-}
-=======
 
   .mob-mt-30 {
     margin-top: 30px;
   }
 }
->>>>>>> 6250a6dc32aa05144607689c4eefbb39cc93a0c6:src/css/style.css
