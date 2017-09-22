@@ -7,12 +7,6 @@ function autoplay() {
   }, 1500);
 }
 
-function mobileViewHelper(element) {
-  if (screen.width <= 1020 && typeof element === 'string') {
-    $(element).remove();
-  }
-}
-
 (function ($) {
   $.scrollIt({
     easing: 'linear',
@@ -88,8 +82,7 @@ function mobileViewHelper(element) {
           }
         }
       ];
-
-    mobileViewHelper('.running-car');
+      
     Materialize.scrollFire(options);
     autoplay();
 
