@@ -6,7 +6,7 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const PurifyCSSPlugin = require('purifycss-webpack');
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   entry: {
@@ -23,7 +23,7 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'modules'
     }),
-    // new BundleAnalyzerPlugin(),
+    new BundleAnalyzerPlugin(),
     new UglifyJSPlugin()
   ],
   output: {
