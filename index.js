@@ -1,5 +1,6 @@
 //stuffs.j
 require('materialize-css/dist/js/materialize.min.js');
+require('./src/js/isOnScreen.js');
 require('./src/js/scrollIt.js');
 require('./src/js/init.js');
 
@@ -93,7 +94,7 @@ $(window).resize(function() {
 });
 
 
-addElement('slide', 'car-slide-4.jpeg', 'left-caption', 'Rastreamento online de onde estiver.', 'Com o sistema Sattrack você saberá onde seus veículos estão em tempo real com atualização a cada minuto, possibilitando o acompanhamento online e podendo ser visualizado por qualquer dispositivo com acesso a internet. Rápido, fácil e preciso.');
+addElement('slide', 'main-car-slide.png', 'left-caption', 'Rastreamento online de onde estiver.', 'Com o sistema Sattrack você saberá onde seus veículos estão em tempo real com atualização a cada minuto, possibilitando o acompanhamento online e podendo ser visualizado por qualquer dispositivo com acesso a internet. Rápido, fácil e preciso.');
 addElement('slide', 'truck-slide-5.jpg', 'right-caption', 'Tenha controle total sobre sua frota com a Telemetria', 'Com a tecnologia de telemetria de dados da Sattrack, as informações coletadas dos veículos são analisadas em dados, com isso é possível acompanhar o comportamento do motorista ao volante, identificando infrações que aumentam o risco deacidente, desperdiçam combustível e reduzem a disponibilidade da frota.');
 
 //stuffs.css
