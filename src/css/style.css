@@ -1,5 +1,6 @@
 body {
   overflow-x: hidden;
+  user-select: none;
 }
 
 nav ul a,
@@ -264,11 +265,12 @@ img.wheel {
 }
 
 img.truck,
-img.truck-tier {
+img.truck-tier,
+img.second-truck-tier {
 	-webkit-transition: all 1.2s ease-out;
 	-moz-transition: all 1.2s ease-out;
 	transition: all 1.2s ease-out;
-  margin-left: 550px;
+  margin-left: 350px;
   margin-top: -100px;
   width: 778px;
 }
@@ -286,7 +288,7 @@ img.truck-tier {
 }
 
 img.second-truck-tier {
-  left: 942px;
+  left: 390px;
   width: 90px;
 }
 
@@ -296,7 +298,7 @@ img.second-truck-tier {
 
 .place-icon-right {
   margin-top: 172px;
-  margin-left: 270px;
+  margin-left: 70px;
 }
 
 .place-icon-left{
@@ -360,8 +362,7 @@ img.second-truck-tier {
   linear-gradient(
     rgba(0, 0, 0, 0.60), 
     rgba(0, 0, 0, 0.60) 
-  ),
-  url(../images/3.jpeg);
+  );
   background-position: center;
   background-size: cover;
   width: 100%;
@@ -472,6 +473,17 @@ img.second-truck-tier {
 }
 
 @media screen and (max-width: 1440px) {
+  img.truck,
+  img.truck-tier,
+  img.second-truck-tier {
+    margin-left: 450px;
+  }
+
+  .place-icon-right {
+    margin-left: 170px !important;
+    margin-top: 162px !important;
+  }
+
   img.truck-tier {
     bottom: 48px;
   }
