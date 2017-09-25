@@ -5,6 +5,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const PurifyCSSPlugin = require('purifycss-webpack');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   entry: {
@@ -12,6 +14,7 @@ module.exports = {
     modules: './src/js/module'
   },
   plugins: [
+    new CleanWebpackPlugin('./dist'),
     new HtmlWebpackPlugin({
       template: './src/index.html',
       hash: true,
@@ -20,6 +23,7 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'modules'
     }),
+    new BundleAnalyzerPlugin(),
     new UglifyJSPlugin()
   ],
   output: {
@@ -35,17 +39,33 @@ module.exports = {
       },
       {
         test: /\.html$/,
-        use: 'html-loader'
+        use: [
+          {
+            loader: 'html-loader',
+            options: {
+              minimize: true,
+              removeComments: true,
+              collapseWhitespace: true
+            }
+          }
+        ]
       },
       {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
           fallback: "style-loader",
-          use: "css-loader"
+          use: [
+            {
+              loader: "css-loader",
+              options: {
+                minimize: true 
+              }
+            }
+          ]
         })
       },
       {
-        test: /\.(png|jpg|jpeg|mp4|mpeg|gif|svg|ttf|eot|woff|woff2)$/,
+        test: /\.(png|jpg|jpeg|mp4|mpeg|gif|ico|svg|ttf|eot|woff|woff2)$/,
         use: [
           {
             loader: 'file-loader',
