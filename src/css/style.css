@@ -676,3 +676,15 @@ img.second-truck-tier {
     font-size: 1.3rem;
   }
 }
+
+@media (max-height: 740px) {
+  .place-icon-right {
+    margin-top: 40px !important;    
+  }
+}
+
+@media (max-height: 715px) {
+  .place-icon-right {
+    margin-top: 20px !important;    
+  }
+}
