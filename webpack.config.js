@@ -6,7 +6,7 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const PurifyCSSPlugin = require('purifycss-webpack');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   entry: {
@@ -17,13 +17,14 @@ module.exports = {
     new CleanWebpackPlugin('./dist'),
     new HtmlWebpackPlugin({
       template: './src/index.html',
+      favicon: './src/images/favicon.ico',
       hash: true,
     }),
     new ExtractTextPlugin("styles.css"),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'modules'
     }),
-    new BundleAnalyzerPlugin(),
+    // new BundleAnalyzerPlugin(),
     new UglifyJSPlugin()
   ],
   output: {
@@ -75,6 +76,14 @@ module.exports = {
             }  
           }
         ]
+      },
+      {
+        test: /favicon\.ico$/,
+        loader: 'url-loader',
+        query: { 
+          limit: 1,
+          name: '[name].[ext]',
+        },
       },
     ]
   }
