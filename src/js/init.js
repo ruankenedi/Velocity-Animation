@@ -1,15 +1,16 @@
+const footer = $('.footer-copyright');
+
 function autoplay() {
   setTimeout(() => {
     $('.carousel').carousel('next')
-    setTimeout(() => {
-      autoplay();
-    }, 4000);
-  }, 1500);
+    autoplay();
+  }, 4000);
 }
 
-function mobileViewHelper(element) {
-  if (screen.width <= 1020 && typeof element === 'string') {
-    $(element).remove();
+function isFooterVisible() {
+  if (footer.isOnScreen()) {
+    $('.about').removeClass('active');
+    $('.contact').addClass('active');
   }
 }
 
@@ -31,6 +32,15 @@ function mobileViewHelper(element) {
         padding: 8,
         dist: 0
       });
+    });
+
+    $(window).scroll(function() {
+      isFooterVisible();
+    });
+
+    $('.contact').click(function (el) {
+      isFooterVisible();
+      // footer.scr
     });
 
     $('.button-collapse').sideNav({
@@ -60,6 +70,7 @@ function mobileViewHelper(element) {
             }, {
               duration: 650
             });
+
             $('.place-icon-left').addClass('bounceInDown');
           }
         },
@@ -70,28 +81,28 @@ function mobileViewHelper(element) {
             truck.velocity({
               translateX: '-285px'
             }, {
-              duration: 650
+              duration: 620
             });
             truckTier.velocity({
               translateX: '-285px',
               rotateZ: '-600deg'
             }, {
-              duration: 650
+              duration: 620
             });
             secTruckTier.velocity({
               translateX: '-285px',
               rotateZ: '-600deg'
             }, {
-              duration: 1825
+              duration: 620
             });
+
             $('.place-icon-right').addClass('bounceInDown');
           }
         }
       ];
 
-    mobileViewHelper('.running-car');
     Materialize.scrollFire(options);
-    autoplay();
+    // autoplay();
 
   });
 })(jQuery);
