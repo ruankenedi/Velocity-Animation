@@ -76,15 +76,7 @@ module.exports = {
             }  
           }
         ]
-      },
-      {
-        test: /favicon\.ico$/,
-        loader: 'url-loader',
-        query: { 
-          limit: 1,
-          name: '[name].[ext]',
-        },
-      },
+      }
     ]
   }
 };
