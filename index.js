@@ -5,7 +5,16 @@ require('./src/js/scrollIt.js');
 require('./src/js/init.js');
 
 const headerElement = $('.header-background');
-let parent, caption, headline, p, image, div = $('<div></div>');
+let parent,
+    caption,
+    headline,
+    p,
+    image,
+    $dots,
+    dotsCount,
+    dotsHtml = '',
+    $count = $('#count'),
+    dotsContainer = $('<div></div>');
 
 function addElement(element, src, elmClass, title, content) {
   if (element === 'img') {
@@ -29,6 +38,16 @@ function addElement(element, src, elmClass, title, content) {
       'loop': true,
       'muted': true
     }));
+
+    return;
+  }
+
+  if (element === 'animation') {
+    dotsContainer.css({
+      'position': 'absolute',
+      'top': '0',
+      'left': '0'  
+    });
 
     return;
   }
