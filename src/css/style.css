@@ -424,10 +424,6 @@ img.second-truck-tier {
   height: 10vh;
 }
 
-.footer-contact {
-  padding: 24px 0;
-}
-
 .head-office-city {
   color: #00b278;
 }
@@ -696,6 +692,10 @@ img.second-truck-tier {
   h5 {
     line-height: 2rem !important;
     font-size: 1.3rem;
+  }
+
+  .footer-first-child {
+    margin-top: 72px;
   }
 }
 
