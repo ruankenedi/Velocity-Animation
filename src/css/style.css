@@ -477,6 +477,18 @@ img.second-truck-tier {
   display: none;
 }
 
+@media screen and (max-width: 1750px) {
+  img.truck, 
+  img.truck-tier,
+  img.second-truck-tier {
+    margin-left: 450px;
+  }
+
+  .place-icon-right {
+    margin-left: 170px; 
+  }
+}
+
 @media screen and (max-width: 1602px) {
   ._nav-wrapper-container {
     margin: 0 0 0 82px;
@@ -503,12 +515,12 @@ img.second-truck-tier {
   img.truck,
   img.truck-tier,
   img.second-truck-tier {
-    margin-left: 450px;
+    margin-left: 500px;
   }
 
   .place-icon-right {
-    margin-left: 170px !important;
-    margin-top: 162px !important;
+    margin-left: 235px !important;
+    margin-top: 140px !important;
   }
 
   img.truck-tier {
@@ -522,12 +534,6 @@ img.second-truck-tier {
 
   .menu-ul {
     margin-left: 26%;
-  }
-}
-
-@media screen and (max-width: 1440px) {
-  .place-icon-right {
-    margin-top: -28px;
   }
 }
 
@@ -572,6 +578,25 @@ img.second-truck-tier {
 
   .brand-logo {
    left: 32%;
+  }
+
+  img.truck, 
+  img.truck-tier,
+  img.second-truck-tier {
+    margin-left: 650px !important;
+  }
+
+  img.car,
+  img.wheel {
+    margin-left: -460px;
+  }
+
+  .place-icon-right {
+    margin-left: 370px !important; 
+  }
+
+  .place-icon-left {
+    margin-left: 220px;
   }
 
   .about-content-wrapper {
@@ -671,5 +696,17 @@ img.second-truck-tier {
   h5 {
     line-height: 2rem !important;
     font-size: 1.3rem;
+  }
+}
+
+@media (max-height: 740px) {
+  .place-icon-right {
+    margin-top: 40px !important;    
+  }
+}
+
+@media (max-height: 715px) {
+  .place-icon-right {
+    margin-top: 20px !important;    
   }
 }
