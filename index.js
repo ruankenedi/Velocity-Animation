@@ -4,22 +4,26 @@ require('./src/js/isOnScreen.js');
 require('./src/js/scrollIt.js');
 require('./src/js/init.js');
 
+
 const headerElement = $('.header-background');
 let parent,
     caption,
     headline,
     p,
-    image,
-    $dots,
-    dotsCount,
-    dotsHtml = '',
-    $count = $('#count'),
-    dotsContainer = $('<div></div>');
+    image;
+    // $dots,
+    // dotsCount,
+    // dotsHtml = '',
+    // $count = $('#count'),
+    // $dotsContainer = $('<div></div>').attr('id', 'dotsContainer');
+
+    // headerElement.append($dotsContainer);
+    // require('./src/js/animation.js');
 
 function addElement(element, src, elmClass, title, content) {
   if (element === 'img') {
     $('.video-background').remove();
-    $(headerElement)
+    headerElement
     .css({
       'background-image': 'linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),url(' + require('./src/images/' + src) +')',
       'background-position': 'center',
@@ -42,15 +46,15 @@ function addElement(element, src, elmClass, title, content) {
     return;
   }
 
-  if (element === 'animation') {
-    dotsContainer.css({
-      'position': 'absolute',
-      'top': '0',
-      'left': '0'  
-    });
+  // if (element === 'animation') {
+  //   $dotsContainer.css({
+  //     'position': 'absolute',
+  //     'top': '0',
+  //     'left': '0'
+  //   });
 
-    return;
-  }
+  //   return;
+  // }
 
   if (element === 'slide' && elmClass) {
     parent = $('<li></li>').addClass('carousel-item');
@@ -91,7 +95,7 @@ function renderElement() {
   const width = screen.width;
 
   if (width <= 500) {
-    addElement('img', 'phone-bg.jpg');
+    addElement('img', 'foto-mobile.jpg');
 
     return;
   }
@@ -111,7 +115,6 @@ renderElement();
 $(window).resize(function() {
   renderElement();
 });
-
 
 addElement('slide', 'main-car-slide.png', 'left-caption', 'Rastreamento online de onde estiver.', 'Com o sistema Sattrack você saberá onde seus veículos estão em tempo real com atualização a cada minuto, possibilitando o acompanhamento online e podendo ser visualizado por qualquer dispositivo com acesso a internet. Rápido, fácil e preciso.');
 addElement('slide', 'truck-slide-5.jpg', 'right-caption', 'Tenha controle total sobre sua frota com a Telemetria', 'Com a tecnologia de telemetria de dados da Sattrack, as informações coletadas dos veículos são analisadas em dados, com isso é possível acompanhar o comportamento do motorista ao volante, identificando infrações que aumentam o risco deacidente, desperdiçam combustível e reduzem a disponibilidade da frota.');
