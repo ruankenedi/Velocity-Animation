@@ -473,6 +473,13 @@ img.second-truck-tier {
   display: none;
 }
 
+.dot {
+  position: absolute;
+  width: 226px;
+  height: 295px;
+  background-image: url('../images/icone_Sat.png');
+}
+
 @media screen and (max-width: 1750px) {
   img.truck, 
   img.truck-tier,

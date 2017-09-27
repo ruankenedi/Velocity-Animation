@@ -4,6 +4,7 @@ require('./src/js/isOnScreen.js');
 require('./src/js/scrollIt.js');
 require('./src/js/init.js');
 
+
 const headerElement = $('.header-background');
 let parent,
     caption,
@@ -14,12 +15,15 @@ let parent,
     dotsCount,
     dotsHtml = '',
     $count = $('#count'),
-    dotsContainer = $('<div></div>');
+    $dotsContainer = $('<div></div>').attr('id', 'dotsContainer');
+
+    headerElement.append($dotsContainer);
+    require('./src/js/animation.js');
 
 function addElement(element, src, elmClass, title, content) {
   if (element === 'img') {
     $('.video-background').remove();
-    $(headerElement)
+    headerElement
     .css({
       'background-image': 'linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),url(' + require('./src/images/' + src) +')',
       'background-position': 'center',
@@ -43,10 +47,10 @@ function addElement(element, src, elmClass, title, content) {
   }
 
   if (element === 'animation') {
-    dotsContainer.css({
+    $dotsContainer.css({
       'position': 'absolute',
       'top': '0',
-      'left': '0'  
+      'left': '0'
     });
 
     return;
@@ -91,7 +95,7 @@ function renderElement() {
   const width = screen.width;
 
   if (width <= 500) {
-    addElement('img', 'phone-bg.jpg');
+    addElement('img', 'foto-mobile.jpg');
 
     return;
   }
@@ -111,6 +115,8 @@ renderElement();
 $(window).resize(function() {
   renderElement();
 });
+
+addElement('animation.js', 'truck-slide-5.jpg');
 
 
 addElement('slide', 'main-car-slide.png', 'left-caption', 'Rastreamento online de onde estiver.', 'Com o sistema Sattrack você saberá onde seus veículos estão em tempo real com atualização a cada minuto, possibilitando o acompanhamento online e podendo ser visualizado por qualquer dispositivo com acesso a internet. Rápido, fácil e preciso.');
