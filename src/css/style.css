@@ -428,15 +428,15 @@ img.second-truck-tier {
   color: #00b278;
 }
 
-.footer-contact ul li i {
+.footer-contact i {
   font-size: 22pt;
 }
 
-.footer-contact ul li a {
+.footer-contact a {
   margin-left: 5px;
 }
 
-.footer-contact ul li img {
+.footer-contact img {
   width: 28px;
   height: 28px;
 }
