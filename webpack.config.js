@@ -10,7 +10,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
   entry: {
     index: './index',
-    modules: './src/js/module'
+    // modules: './src/js/module'
   },
   plugins: [
     new CleanWebpackPlugin('./dist'),
@@ -20,9 +20,9 @@ module.exports = {
       hash: true,
     }),
     new ExtractTextPlugin("styles.css"),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'modules'
-    }),
+    // new webpack.optimize.CommonsChunkPlugin({
+    //   name: 'modules'
+    // }),
     // new BundleAnalyzerPlugin(),
     new UglifyJSPlugin()
   ],
