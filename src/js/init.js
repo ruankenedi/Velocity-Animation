@@ -1,16 +1,21 @@
+const car = $('.car');
+const truck = $('.truck');
+const carTier = $('.wheel');
+const truckTier = $('.truck-tier');
+const secTruckTier = $('.second-truck-tier');
+const rightPlaceIcon = $('.place-icon-right');
+const leftPlaceIcon = $('.place-icon-left');
 const footer = $('.footer-copyright');
 
-let car = $('.car'),
-    truck = $('.truck'),
-    carTier = $('.wheel'),
-    truckTier = $('.truck-tier'),
-    secTruckTier = $('.second-truck-tier'),
-    rightPlaceIcon = $('.place-icon-right'),
-    leftPlaceIcon = $('.place-icon-left');
+let options;
+let hasTruckStarted = false;
+let hasCarStarted = false;
+let dirtyTruck;
+let dirtyCar;
 
 function autoplay() {
   setTimeout(() => {
-    $('.carousel').carousel('next')
+    $('.carousel').carousel('next');
     autoplay();
   }, 4000);
 }
@@ -22,28 +27,22 @@ function isFooterVisible() {
   }
 }
 
-let hasCarStarted = false,
-    hasTruckStarted = false,
-    dirtyCar,
-    dirtyTruck;
-
 function isVehicleVisible() {
   if ($('.car').isOnScreen() && hasCarStarted === false) {
     hasCarStarted = true;
-    
     car.velocity({
       translateX: '285px'
     }, {
       duration: 650,
-      begin: (el) => { dirtyCar = true; },
-      complete: (el) => { dirtyCar = false; }
+      begin: () => { dirtyCar = true; },
+      complete: () => { dirtyCar = false; }
     });
     carTier.velocity({
       translateX: '285px',
       rotateZ: '600deg'
     }, {
       duration: 650
-    });    
+    });
     leftPlaceIcon.addClass('bounceInDown');
 
     return;
@@ -76,8 +75,8 @@ function isVehicleVisible() {
       translateX: '-285px'
     }, {
       duration: 620,
-      begin: (el) => { dirtyTruck = true; },
-      complete: (el) => { dirtyTruck = false; }
+      begin: () => { dirtyTruck = true; },
+      complete: () => { dirtyTruck = false; }
     });
     truckTier.velocity({
       translateX: '-285px',
@@ -122,7 +121,7 @@ function isVehicleVisible() {
   }
 }
 
-(function ($) {
+(function init($) {
   $.scrollIt({
     easing: 'linear',
     scrollTime: 1000,
@@ -132,7 +131,6 @@ function isVehicleVisible() {
   });
 
   $(function () {
-
     $(document).ready(function () {
       $('.carousel.carousel-slider').carousel({
         fullWidth: true,
@@ -147,9 +145,8 @@ function isVehicleVisible() {
       isVehicleVisible();
     });
 
-    $('.contact').click(function (el) {
+    $('.contact').click(function () {
       isFooterVisible();
-      // footer.scr
     });
 
     $('.button-collapse').sideNav({
@@ -159,37 +156,33 @@ function isVehicleVisible() {
       draggable: true,
     });
 
-    
-    let  options = [ 
-        {
-          selector: '.truck',
-          offset: 80,
-          callback: function (el) {
-            truck.velocity({
-              translateX: '-285px'
-            }, {
-              duration: 620
-            });
-            truckTier.velocity({
-              translateX: '-285px',
-              rotateZ: '-600deg'
-            }, {
-              duration: 620
-            });
-            secTruckTier.velocity({
-              translateX: '-285px',
-              rotateZ: '-600deg'
-            }, {
-              duration: 620
-            });
+    options = [{
+      selector: '.truck',
+      offset: 80,
+      callback: function () {
+        truck.velocity({
+          translateX: '-285px'
+        }, {
+          duration: 620
+        });
+        truckTier.velocity({
+          translateX: '-285px',
+          rotateZ: '-600deg'
+        }, {
+          duration: 620
+        });
+        secTruckTier.velocity({
+          translateX: '-285px',
+          rotateZ: '-600deg'
+        }, {
+          duration: 620
+        });
 
-            $('.place-icon-right').addClass('bounceInDown');
-          }
-        }
-      ];
-
+        $('.place-icon-right').addClass('bounceInDown');
+      }
+    }
+  ];
     // Materialize.scrollFire(options);
     // autoplay();
-
   });
 })(jQuery);
