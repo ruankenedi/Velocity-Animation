@@ -7,7 +7,6 @@ const rightPlaceIcon = $('.place-icon-right');
 const leftPlaceIcon = $('.place-icon-left');
 const footer = $('.footer-copyright');
 
-let options;
 let hasTruckStarted = false;
 let hasCarStarted = false;
 let dirtyTruck;
@@ -28,29 +27,45 @@ function isFooterVisible() {
 }
 
 function isVehicleVisible() {
+  if (hasCarStarted === false) {
+    leftPlaceIcon.velocity({ opacity: 0 }, { duration: 0 });
+  }
+
+  if (hasTruckStarted === false) {
+    rightPlaceIcon.velocity({ opacity: 0 }, { duration: 0 });
+  }
+
   if ($('.car').isOnScreen() && hasCarStarted === false) {
     hasCarStarted = true;
     car.velocity({
       translateX: '285px'
     }, {
-      duration: 650,
+      duration: 0,
       begin: () => { dirtyCar = true; },
-      complete: () => { dirtyCar = false; }
+      complete: () => {
+        dirtyCar = false;
+
+        setTimeout(() => {
+          leftPlaceIcon.velocity({ opacity: .1 }, { duration: 0 });
+          leftPlaceIcon.velocity({ opacity: .5 }, { duration: 0 });
+          leftPlaceIcon.velocity({ opacity: 1 }, { duration: 0 });
+          leftPlaceIcon.addClass('bounceInDown');
+        }, 580);
+      }
     });
     carTier.velocity({
       translateX: '285px',
       rotateZ: '600deg'
     }, {
-      duration: 650
+      duration: 0
     });
-    leftPlaceIcon.addClass('bounceInDown');
 
     return;
   }
 
   if (dirtyCar === false && $('.car').isOnScreen() === false) {
-    dirtyCar = true;
     hasCarStarted = false;
+    dirtyCar = true;
 
     car.velocity({
       translateX: '0px'
@@ -70,35 +85,42 @@ function isVehicleVisible() {
 
   if ($('.truck').isOnScreen() && hasTruckStarted === false) {
     hasTruckStarted = true;
-    
+
     truck.velocity({
       translateX: '-285px'
     }, {
-      duration: 620,
+      duration: 0,
       begin: () => { dirtyTruck = true; },
-      complete: () => { dirtyTruck = false; }
+      complete: () => {
+        dirtyTruck = false;
+
+        setTimeout(() => {
+          rightPlaceIcon.velocity({ opacity: .1 }, { duration: 0 });
+          rightPlaceIcon.velocity({ opacity: .5 }, { duration: 0 });
+          rightPlaceIcon.velocity({ opacity: 1 }, { duration: 0 });
+          rightPlaceIcon.addClass('bounceInDown');
+        }, 580);
+      }
     });
     truckTier.velocity({
       translateX: '-285px',
       rotateZ: '-600deg'
     }, {
-      duration: 620
+      duration: 0
     });
     secTruckTier.velocity({
       translateX: '-285px',
       rotateZ: '-600deg'
     }, {
-      duration: 620
+      duration: 0
     });
-
-    rightPlaceIcon.addClass('bounceInDown');
 
     return;
   }
 
   if (dirtyTruck === false && $('.truck').isOnScreen() === false) {
-    dirtyTruck = true;
     hasTruckStarted = false;
+    dirtyTruck = true;
 
     truck.velocity({
       translateX: '0px'
@@ -140,12 +162,16 @@ function isVehicleVisible() {
       });
     });
 
-    $(window).scroll(function() {
+    $(window).scroll(() => {
       isFooterVisible();
       isVehicleVisible();
     });
 
-    $('.contact').click(function () {
+    $(window).ready(() => {
+      isVehicleVisible();
+    });
+
+    $('.contact').click(() => {
       isFooterVisible();
     });
 
@@ -155,34 +181,6 @@ function isVehicleVisible() {
       closeOnClick: true,
       draggable: true,
     });
-
-    options = [{
-      selector: '.truck',
-      offset: 80,
-      callback: function () {
-        truck.velocity({
-          translateX: '-285px'
-        }, {
-          duration: 620
-        });
-        truckTier.velocity({
-          translateX: '-285px',
-          rotateZ: '-600deg'
-        }, {
-          duration: 620
-        });
-        secTruckTier.velocity({
-          translateX: '-285px',
-          rotateZ: '-600deg'
-        }, {
-          duration: 620
-        });
-
-        $('.place-icon-right').addClass('bounceInDown');
-      }
-    }
-  ];
-    // Materialize.scrollFire(options);
     // autoplay();
   });
 })(jQuery);
