@@ -32,15 +32,15 @@ p {
   width: 100%;
 }
 
-   @media only screen and (min-width: 1025px) and (max-width: 1510px) {
-  .right  {
+@media only screen and (min-width: 1025px) and (max-width: 1510px) {
+  .right {
     margin-left: 20px; 
     min-height: 56px;
     height: auto;
   }
-  .btn {
+  /* .btn {
     display: none;
-  }
+  } */
 }   
 
 @media only screen and (max-width : 992px) {
