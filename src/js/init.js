@@ -7,16 +7,50 @@ const rightPlaceIcon = $('.place-icon-right');
 const leftPlaceIcon = $('.place-icon-left');
 const footer = $('.footer-copyright');
 
+let slideTimout = null;
+let isUserInteracting = false;
+let hasUserScrolled = false;
 let hasTruckStarted = false;
 let hasCarStarted = false;
 let dirtyTruck;
 let dirtyCar;
+let nextSlide;
+
+function isUserScrolling() {
+  hasUserScrolled = true;
+
+  if(hasUserScrolled !== false) {
+    clearTimeout(hasUserScrolled);
+  }
+
+  hasUserScrolled = setTimeout(() => {}, 150);
+}
 
 function autoplay() {
+  if (slideTimout === null) {
+    if (hasUserScrolled !== true && screen.width <= 950) {
+      if (isUserInteracting === false) {
+        setTimeout(() => { slideTimout = null }, 500);
+        slideTimout = setTimeout(() => {
+          $('.carousel').carousel('next');
+        }, 6000); 
+        autoplay();
+
+        return;
+      }
+    }
+
+    if (screen.width >= 950) {
+      slideTimout = setTimeout(() => {
+        setTimeout(() => { slideTimout = null }, 1000);
+        $('.carousel').carousel('next');
+      }, 7000);
+    }
+  }
+    
   setTimeout(() => {
-    $('.carousel').carousel('next');
     autoplay();
-  }, 4000);
+  }, 300);
 }
 
 function isFooterVisible() {
@@ -154,22 +188,33 @@ function isVehicleVisible() {
 
   $(function () {
     $(document).ready(function () {
+      hasUserScrolled = true;
+
       $('.carousel.carousel-slider').carousel({
         fullWidth: true,
         indicators: true,
-        padding: 8,
+        padding: 4,
         dist: 0
       });
+      isVehicleVisible();
+      autoplay();
     });
 
     $(window).scroll(() => {
       isFooterVisible();
       isVehicleVisible();
+      isUserScrolling();
     });
 
-    $(window).ready(() => {
-      isVehicleVisible();
-    });
+    window.addEventListener('touchstart', () => {
+      isUserInteracting = true;
+      console.log('INTERAC')
+    }, false);
+    
+    window.addEventListener('touchend', () => {
+      isUserInteracting = false;
+      console.log('NOT INTERAC')
+    }, false);
 
     $('.contact').click(() => {
       isFooterVisible();
@@ -181,6 +226,6 @@ function isVehicleVisible() {
       closeOnClick: true,
       draggable: true,
     });
-    // autoplay();
+    $('.collapsible').collapsible();
   });
 })(jQuery);
