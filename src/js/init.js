@@ -37,7 +37,7 @@ function autoplay() {
       setTimeout(() => { slideTimout = null }, 1000);
       slideTimout = setTimeout(() => {
         $('.carousel').carousel('next');
-      }, 5700); 
+      }, 7500); 
       autoplay();
 
       return;
