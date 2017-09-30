@@ -75,7 +75,7 @@ footer.page-footer {
 }
 
 #for-you {
-  margin-top: -32px;  
+  margin-top: -15px;  
 }
 
 #sidenav-overlay {
@@ -113,7 +113,7 @@ footer.page-footer {
 }
 
 .slide-wrapper, .slider {
-  height: 660px !important;
+  height: 96vh !important;
 }
 
 .controls {
@@ -663,7 +663,8 @@ img.second-truck-tier {
   }
 
   .slide-wrapper, .slider {
-    height: 100vh;
+    background: rgba(255, 255, 255, 0) !important;
+    height: 100vh !important;
     min-height: 580px !important;
   }
 
