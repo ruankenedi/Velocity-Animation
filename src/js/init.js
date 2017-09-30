@@ -23,30 +23,34 @@ function isUserScrolling() {
     clearTimeout(hasUserScrolled);
   }
 
-  hasUserScrolled = setTimeout(() => {}, 150);
+  hasUserScrolled = setTimeout(() => {
+    hasUserScrolled = true;
+    setTimeout(() => {
+      hasUserScrolled = false;
+    }, 120);
+  }, 100);
 }
 
 function autoplay() {
-  if (slideTimout === null) {
-    if (hasUserScrolled !== true && screen.width <= 950) {
-      if (isUserInteracting === false) {
-        setTimeout(() => { slideTimout = null }, 500);
-        slideTimout = setTimeout(() => {
-          $('.carousel').carousel('next');
-        }, 6000); 
-        autoplay();
-
-        return;
-      }
-    }
-
-    if (screen.width >= 950) {
+  if (hasUserScrolled === false && screen.width <= 950 && slideTimout === null) {
+    if (isUserInteracting === false) {
+      setTimeout(() => { slideTimout = null }, 1000);
       slideTimout = setTimeout(() => {
-        setTimeout(() => { slideTimout = null }, 1000);
         $('.carousel').carousel('next');
-      }, 7000);
+      }, 5700); 
+      autoplay();
+
+      return;
     }
   }
+
+  if (screen.width >= 950 && slideTimout === null) {
+    slideTimout = setTimeout(() => {
+      setTimeout(() => { slideTimout = null }, 1000);
+      $('.carousel').carousel('next');
+    }, 9000);
+  }
+  
     
   setTimeout(() => {
     autoplay();
@@ -188,8 +192,6 @@ function isVehicleVisible() {
 
   $(function () {
     $(document).ready(function () {
-      hasUserScrolled = true;
-
       $('.carousel.carousel-slider').carousel({
         fullWidth: true,
         indicators: true,
@@ -208,12 +210,10 @@ function isVehicleVisible() {
 
     window.addEventListener('touchstart', () => {
       isUserInteracting = true;
-      console.log('INTERAC')
     }, false);
     
     window.addEventListener('touchend', () => {
       isUserInteracting = false;
-      console.log('NOT INTERAC')
     }, false);
 
     $('.contact').click(() => {
@@ -226,6 +226,5 @@ function isVehicleVisible() {
       closeOnClick: true,
       draggable: true,
     });
-    $('.collapsible').collapsible();
   });
 })(jQuery);
