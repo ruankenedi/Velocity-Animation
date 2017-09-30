@@ -7,55 +7,10 @@ const rightPlaceIcon = $('.place-icon-right');
 const leftPlaceIcon = $('.place-icon-left');
 const footer = $('.footer-copyright');
 
-let slideTimout = null;
-let isUserInteracting = false;
-let hasUserScrolled = false;
 let hasTruckStarted = false;
 let hasCarStarted = false;
 let dirtyTruck;
 let dirtyCar;
-let nextSlide;
-
-function isUserScrolling() {
-  hasUserScrolled = true;
-
-  if(hasUserScrolled !== false) {
-    clearTimeout(hasUserScrolled);
-  }
-
-  hasUserScrolled = setTimeout(() => {
-    hasUserScrolled = true;
-    setTimeout(() => {
-      hasUserScrolled = false;
-    }, 120);
-  }, 100);
-}
-
-function autoplay() {
-  if (hasUserScrolled === false && screen.width <= 950 && slideTimout === null) {
-    if (isUserInteracting === false) {
-      setTimeout(() => { slideTimout = null }, 1000);
-      slideTimout = setTimeout(() => {
-        $('.carousel').carousel('next');
-      }, 7500); 
-      autoplay();
-
-      return;
-    }
-  }
-
-  if (screen.width >= 950 && slideTimout === null) {
-    slideTimout = setTimeout(() => {
-      setTimeout(() => { slideTimout = null }, 1000);
-      $('.carousel').carousel('next');
-    }, 9000);
-  }
-  
-    
-  setTimeout(() => {
-    autoplay();
-  }, 300);
-}
 
 function isFooterVisible() {
   if (footer.isOnScreen()) {
@@ -192,29 +147,17 @@ function isVehicleVisible() {
 
   $(function () {
     $(document).ready(function () {
-      $('.carousel.carousel-slider').carousel({
-        fullWidth: true,
-        indicators: true,
-        padding: 4,
-        dist: 0
+      $('.slider').slider({
+        transition: 1000,
+        interval: 7000
       });
       isVehicleVisible();
-      autoplay();
     });
 
     $(window).scroll(() => {
       isFooterVisible();
       isVehicleVisible();
-      isUserScrolling();
     });
-
-    window.addEventListener('touchstart', () => {
-      isUserInteracting = true;
-    }, false);
-    
-    window.addEventListener('touchend', () => {
-      isUserInteracting = false;
-    }, false);
 
     $('.contact').click(() => {
       isFooterVisible();
