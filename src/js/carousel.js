@@ -15,6 +15,7 @@
         };
         options = $.extend(defaults, options);
         var namespace = Materialize.objectSelectorString($(this));
+        var tweenedOpacity, zTranslation, y;
   
         return this.each(function(i) {
   
