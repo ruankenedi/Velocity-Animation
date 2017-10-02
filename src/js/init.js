@@ -192,7 +192,7 @@ function isVehicleVisible() {
 
   $(function () {
     $(document).ready(function () {
-      $('.carousel.carousel-slider').carousel({
+      $('.carousel.carousel-slider').daniel({
         fullWidth: true,
         indicators: true,
         padding: 4,
