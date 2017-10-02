@@ -1,8 +1,9 @@
 // stuffs.js
-require('materialize-css/dist/js/materialize.min.js');
-require('./src/js/isOnScreen.js');
-require('./src/js/scrollIt.js');
-require('./src/js/init.js');
+require('materialize-css/dist/js/materialize.min');
+require('./src/js/isOnScreen');
+require('./src/js/carousel');
+require('./src/js/scrollIt');
+require('./src/js/init');
 
 
 const headerElement = $('.header-background');
