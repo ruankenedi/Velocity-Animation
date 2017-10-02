@@ -7,6 +7,8 @@ const rightPlaceIcon = $('.place-icon-right');
 const leftPlaceIcon = $('.place-icon-left');
 const footer = $('.footer-copyright');
 
+let AUTOPLAY_INTERVAL;
+let AUTOPLAY_TRANSITION;
 let hasTruckStarted = false;
 let hasCarStarted = false;
 let dirtyTruck;
@@ -147,16 +149,21 @@ function isVehicleVisible() {
 
   $(function () {
     $(document).ready(function () {
-      $('.slider').slider({
-        transition: 1000,
-        interval: 7000
-      });
+      if (screen.width <= 950) {
+        AUTOPLAY_INTERVAL = 5000;
+        AUTOPLAY_TRANSITION = 600;
+      } else {
+        AUTOPLAY_INTERVAL = 7500;
+        AUTOPLAY_TRANSITION = 1100;
+      }
+
+      $('.carousel').carousel();
       isVehicleVisible();
     });
 
     $(window).scroll(() => {
       isFooterVisible();
-      isVehicleVisible();
+      isVehicleVisible();    
     });
 
     $('.contact').click(() => {
