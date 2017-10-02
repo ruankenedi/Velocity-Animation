@@ -3,6 +3,7 @@ require('materialize-css/dist/js/materialize.min.js');
 require('./src/js/isOnScreen.js');
 require('./src/js/scrollIt.js');
 require('./src/js/init.js');
+require('./src/js/carousel');
 
 
 const headerElement = $('.header-background');
