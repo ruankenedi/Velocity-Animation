@@ -5,7 +5,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   entry: {
@@ -23,12 +22,11 @@ module.exports = {
     // new webpack.optimize.CommonsChunkPlugin({
     //   name: 'modules'
     // }),
-    // new BundleAnalyzerPlugin(),
     new UglifyJSPlugin()
   ],
   output: {
     path: path.resolve(__dirname, 'dist/'),
-    filename: 'js/[name].bundle.js'
+    filename: 'js/[hash].bundle.js'
   },
   module: {
     rules: [
@@ -60,7 +58,15 @@ module.exports = {
               options: {
                 minimize: true 
               }
-            }
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                config: {
+                  path: 'postcss.config.js'
+                }
+              }
+            },
           ]
         })
       },
