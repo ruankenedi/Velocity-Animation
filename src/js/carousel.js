@@ -25,6 +25,12 @@
           var $indicators = $('<ul class="indicators"></ul>');
           var scrollingTimeout = null;
           var oneTimeCallback = null;
+          let autoplayTimout;
+          let autoplayStatus = {
+            _shouldPlay: true,
+            _timeout: undefined
+          };
+          let slided;
   
   
           // Initialize
@@ -176,7 +182,6 @@
             // Start actual scroll
             var i, half, delta, dir, tween, el, alignment, xTranslation;
             var lastCenter = center;
-  
             offset = (typeof x === 'number') ? x : offset;
             center = Math.floor((offset + dim / 2) / dim);
             delta = offset - center * dim;
@@ -185,8 +190,8 @@
             half = count >> 1;
   
             if (!options.fullWidth) {
-              alignment = 'translateX(' + (view[0].clientWidth - item_width) / 2 + 'px) ';
-              alignment += 'translateY(' + (view[0].clientHeight - item_height) / 2 + 'px)';
+              alignment = 'translateX(' + (view[0].clientWidth - item_width) / 5 + 'px) ';
+              alignment += 'translateY(' + (view[0].clientHeight - item_height) / 5 + 'px)';
             } else {
               alignment = 'translateX(0)';
             }
@@ -235,14 +240,13 @@
               if (!noWrap || center + i < count) {
                 el = images[wrap(center + i)];
                 el.style[xform] = alignment +
-                  ' translateX(' + (options.shift + (dim * i - delta) / 2) + 'px)' +
-                  ' translateZ(' + zTranslation + 'px)';
+                ' translateX(' + (options.shift + (dim * i - delta) / 2) + 'px)' +
+                ' translateZ(' + zTranslation + 'px)';
                 el.style.zIndex = -i;
                 el.style.opacity = tweenedOpacity;
                 el.style.display = 'block';
               }
-  
-  
+              
               // left side
               if (options.fullWidth) {
                 zTranslation = options.dist;
@@ -306,25 +310,27 @@
           }
   
           function autoScroll() {
-            var elapsed, delta;
+            var elapsed, delta, x;
   
             if (amplitude) {
               elapsed = Date.now() - timestamp;
               delta = amplitude * Math.exp(-elapsed / options.duration);
-              if (delta > 2 || delta < -2) {
-                  scroll(target - delta);
-                  requestAnimationFrame(autoScroll);
+              x = target - delta;
+              if (delta > 7 || delta < -7) {
+                release();
+                scroll(target - delta);
+                requestAnimationFrame(autoScroll);
               } else {
-                  scroll(target);
+                scroll(target);
               }
             }
           }
-  
+
           function click(e) {
             // Disable clicks if carousel was dragged.
             if (dragged) {
-              e.preventDefault();
-              e.stopPropagation();
+              // e.preventDefault();
+              // e.stopPropagation();
               return false;
   
             } else if (!options.fullWidth) {
@@ -333,8 +339,8 @@
   
               // Disable clicks if carousel was shifted by click
               if (diff !== 0) {
-                e.preventDefault();
-                e.stopPropagation();
+                // e.preventDefault();
+                // e.stopPropagation();
               }
               cycleTo(clickedIndex);
             }
@@ -356,7 +362,6 @@
             // Call prev or next accordingly.
             if (diff < 0) {
               view.trigger('carouselNext', [Math.abs(diff)]);
-  
             } else if (diff > 0) {
               view.trigger('carouselPrev', [diff]);
             }
@@ -387,9 +392,9 @@
               y = ypos(e);
               delta = reference - x;
               deltaY = Math.abs(referenceY - y);
-              if (deltaY < 30 && !vertical_dragged) {
+              if (deltaY < 20 && !vertical_dragged) {
                 // If vertical scrolling don't allow dragging.
-                if (delta > 2 || delta < -2) {
+                if (delta > 10 || delta < -10) {
                   dragged = true;
                   reference = x;
                   scroll(offset + delta);
@@ -397,8 +402,9 @@
   
               } else if (dragged) {
                 // If dragging don't allow vertical scroll.
-                e.preventDefault();
-                e.stopPropagation();
+                // e.preventDefault();
+                // e.stopPropagation();
+
                 return false;
   
               } else {
@@ -407,29 +413,35 @@
               }
             }
   
-            if (dragged) {
-              // If dragging don't allow vertical scroll.
-              e.preventDefault();
-              e.stopPropagation();
-              return false;
-            }
+            // if (dragged) {
+            //   // If dragging don't allow vertical scroll.
+            //   // e.preventDefault();
+            //   // e.stopPropagation();
+            //   return false;
+            // }
           }
-  
+          
           function release(e) {
+          
             if (pressed) {
               pressed = false;
             } else {
               return;
             }
-  
+            
+          
             clearInterval(ticker);
             target = offset;
+            
             if (velocity > 10 || velocity < -10) {
               amplitude = 0.9 * velocity;
               target = offset + amplitude;
             }
+            
             target = Math.round(target / dim) * dim;
-  
+
+            if (target < 0 || target > 0) $(this).trigger('drag');
+            
             // No wrap of items.
             if (noWrap) {
               if (target >= dim * (count - 1)) {
@@ -442,13 +454,60 @@
             timestamp = Date.now();
             requestAnimationFrame(autoScroll);
   
-            if (dragged) {
-              e.preventDefault();
-              e.stopPropagation();
-            }
+            // if (dragged) {
+            //   e.preventDefault();
+            //   e.stopPropagation();
+            // }
             return false;
           }
+
+          function play() {
+            target = (dim * Math.round(offset / dim)) + (dim * 1);
+            amplitude = target - offset;
+            timestamp = Date.now();
+            
+            release();
+            requestAnimationFrame(autoScroll);
+            console.log('played')
+          }
+
+          function autoplay(event, options) {
+            release();
+            console.log('played 2')
+            if (autoplayStatus._shouldPlay === true && autoplayStatus._timeout === undefined) {
+              if (typeof autoplayTimout === 'number') {
+                clearTimeout(autoplayTimout);
+                autoplayTimout = undefined;
+                
+                setTimeout(() => {
+                  autoplay(event, options);
+                }, 500);
+                requestAnimationFrame(autoScroll);
+                release();
   
+                return;
+              }
+              
+              if (options.enabled === true && autoplayTimout === undefined) {
+                autoplayTimout = setTimeout(function() {
+                  play();
+                
+                  setTimeout(() => {
+                    autoplay(event, options)
+                  }, 500);
+                }, options.speed);
+                release();
+                requestAnimationFrame(autoScroll);
+                
+                return;
+              }
+            }
+            
+            setTimeout(() => {
+              autoplay(event, options)
+            }, 500);
+          }
+
           xform = 'transform';
           ['webkit', 'Moz', 'O', 'ms'].every(function (prefix) {
             var e = prefix + 'Transform';
@@ -478,6 +537,25 @@
   
           setupEvents();
           scroll(offset);
+
+          $(this).on('dragLeft', function(event) {});
+
+          $(this).on('dragRight', function(event) {});
+
+          $(this).on('drag', function() {
+            autoplayStatus._shouldPlay = false;
+            autoplay(event, autoplayStatus);
+            autoplayStatus._timeout = setTimeout(() => {
+              autoplayStatus._shouldPlay = true;
+              clearTimeout(autoplayStatus._timeout);
+              autoplayStatus._timeout = undefined;
+            }, 100);
+          });
+
+          $(this).on('autoplay', function(event, options) {
+            autoplayStatus = Object.assign(options, autoplayStatus);
+            autoplay(event, autoplayStatus);
+          });
   
           $(this).on('carouselNext', function(e, n, callback) {
             if (n === undefined) {
@@ -521,11 +599,15 @@
   
             cycleTo(n);
           });
-  
+
         });
   
-  
-  
+      },
+      autoplay: function({speed, enabled}) {
+        $(this).trigger('autoplay', {
+          speed,
+          enabled
+        });
       },
       next : function(n, callback) {
         $(this).trigger('carouselNext', [n, callback]);
@@ -553,7 +635,7 @@
     };
   
   
-      $.fn.daniel = function(methodOrOptions) {
+      $.fn.Carousel = function(methodOrOptions) {
         if ( methods[methodOrOptions] ) {
           return methods[ methodOrOptions ].apply( this, Array.prototype.slice.call( arguments, 1 ));
         } else if ( typeof methodOrOptions === 'object' || ! methodOrOptions ) {
