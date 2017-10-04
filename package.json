@@ -28,8 +28,9 @@
     "webpack-bundle-analyzer": "^2.9.0"
   },
   "scripts": {
-    "build": "webpack",
-    "watch": "webpack --watch"
+    "dev": "webpack",
+    "watch": "webpack --watch",
+    "deploy": "surge /home/dev/sattrack-website/dist/ wa.sattrack.surge.sh/"
   },
   "repository": {
     "type": "git",
