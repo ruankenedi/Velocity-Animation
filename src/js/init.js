@@ -7,55 +7,11 @@ const rightPlaceIcon = $('.place-icon-right');
 const leftPlaceIcon = $('.place-icon-left');
 const footer = $('.footer-copyright');
 
-let slideTimout = null;
-let isUserInteracting = false;
-let hasUserScrolled = false;
+let topOffset = -45;
 let hasTruckStarted = false;
 let hasCarStarted = false;
 let dirtyTruck;
 let dirtyCar;
-let nextSlide;
-
-function isUserScrolling() {
-  hasUserScrolled = true;
-
-  if(hasUserScrolled !== false) {
-    clearTimeout(hasUserScrolled);
-  }
-
-  hasUserScrolled = setTimeout(() => {
-    hasUserScrolled = true;
-    setTimeout(() => {
-      hasUserScrolled = false;
-    }, 120);
-  }, 100);
-}
-
-function autoplay() {
-  if (hasUserScrolled === false && screen.width <= 950 && slideTimout === null) {
-    if (isUserInteracting === false) {
-      setTimeout(() => { slideTimout = null }, 1000);
-      slideTimout = setTimeout(() => {
-        $('.carousel').carousel('next');
-      }, 7500); 
-      autoplay();
-
-      return;
-    }
-  }
-
-  if (screen.width >= 950 && slideTimout === null) {
-    slideTimout = setTimeout(() => {
-      setTimeout(() => { slideTimout = null }, 1000);
-      $('.carousel').carousel('next');
-    }, 9000);
-  }
-  
-    
-  setTimeout(() => {
-    autoplay();
-  }, 300);
-}
 
 function isFooterVisible() {
   if (footer.isOnScreen()) {
@@ -182,39 +138,39 @@ function isVehicleVisible() {
 }
 
 (function init($) {
-  $.scrollIt({
-    easing: 'linear',
-    scrollTime: 1000,
-    activeClass: 'active',
-    onPageChange: null,
-    topOffset: -46
-  });
-
   $(function () {
     $(document).ready(function () {
-      $('.carousel.carousel-slider').daniel({
+      if (screen.width < 950) {
+        topOffset = -25;
+        
+        $('#left-banner').removeClass('m-tb-16');
+        $('.carousel').Carousel('autoplay', {
+          enabled: true,
+          speed: 7000
+        });  
+      }
+
+      $('.carousel.carousel-slider').Carousel({
         fullWidth: true,
         indicators: true,
         padding: 4,
         dist: 0
       });
+      
       isVehicleVisible();
-      autoplay();
+      $.scrollIt({
+        easing: 'linear',
+        scrollTime: 1000,
+        activeClass: 'active',
+        onPageChange: null,
+        topOffset: topOffset
+      });
     });
 
     $(window).scroll(() => {
       isFooterVisible();
       isVehicleVisible();
-      isUserScrolling();
     });
-
-    window.addEventListener('touchstart', () => {
-      isUserInteracting = true;
-    }, false);
-    
-    window.addEventListener('touchend', () => {
-      isUserInteracting = false;
-    }, false);
 
     $('.contact').click(() => {
       isFooterVisible();
