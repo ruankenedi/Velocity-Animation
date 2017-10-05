@@ -183,8 +183,8 @@ function isVehicleVisible() {
     });
 
     $('.find-your-car').click(() => {
-      if (isMobile(navigator.userAgent || navigator.vendor || window.opera) === true) window.location = 'https://google.com'
-      else window.location = 'http://sattrack.com.br'
+      if (isMobile(navigator.userAgent || navigator.vendor || window.opera) === true) window.location = 'http://app.sattrack.com.br/'
+      else window.location = 'http://sattrack.com.br/app'
     });
 
     $('.button-collapse').sideNav({
