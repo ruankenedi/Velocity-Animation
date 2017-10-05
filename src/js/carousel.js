@@ -516,6 +516,37 @@
             autoplay(event, autoplayStatus);
           });
 
+          $(this).on('carouselNext', function(e, n, callback) {
+            if (n === undefined) {
+              n = 1;
+            }
+            if (typeof(callback) === "function") {
+              oneTimeCallback = callback;
+            }
+  
+            target = (dim * Math.round(offset / dim)) + (dim * n);
+            if (offset !== target) {
+              amplitude = target - offset;
+              timestamp = Date.now();
+              requestAnimationFrame(autoScroll);
+            }
+          });
+  
+          $(this).on('carouselPrev', function(e, n, callback) {
+            if (n === undefined) {
+              n = 1;
+            }
+            if (typeof(callback) === "function") {
+              oneTimeCallback = callback;
+            }
+  
+            target = (dim * Math.round(offset / dim)) - (dim * n);
+            if (offset !== target) {
+              amplitude = target - offset;
+              timestamp = Date.now();
+              requestAnimationFrame(autoScroll);
+            }
+          });
         });
   
       },
