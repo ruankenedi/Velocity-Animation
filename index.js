@@ -106,7 +106,6 @@ function renderElement(priority) {
     return;
   }
   if (width > 768) {
-    console.log('STARTED')
     addElement('video', 'video.mp4', 'video-background');
   }
 }
