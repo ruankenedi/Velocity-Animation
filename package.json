@@ -5,7 +5,6 @@
   "main": "index.js",
   "dependencies": {
     "jquery": "^3.2.1",
-    "materialize-css": "^0.100.2",
     "uglify-es": "github:mishoo/UglifyJS2#harmony"
   },
   "devDependencies": {
