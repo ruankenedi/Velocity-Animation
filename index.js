@@ -1,10 +1,18 @@
 // stuffs.js
-require('materialize-css/dist/js/materialize.min');
+require('./src/js/initial');
+require('./src/js/jquery.easing.1.4');
+require('./src/js/animation');
+require('./src/js/velocity.min');
+require('./src/js/hammer.min');
+require('./src/js/jquery.hammer');
+require('./src/js/global');
+require('./src/js/parallax');
+require('./src/js/waves');
+require('./src/js/sideNav');
 require('./src/js/isOnScreen');
 require('./src/js/carousel');
 require('./src/js/scrollIt');
 require('./src/js/init');
-
 
 const headerElement = $('.header-background');
 let parent;
@@ -47,7 +55,7 @@ function addElement(element, src, elmClass, title, content) {
     image = $('<div></div>')
       .addClass('slide-mask')
       .css({
-        background: 'linear-gradient(rgba(0,0,0,.74),rgba(0,0,0,.74)),url(' + require('./src/images/' + src) +')',
+        background: 'linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),url(' + require('./src/images/' + src) +')',
         'background-position': '50%',
         'background-size': 'cover',
         width: '100%',
@@ -105,6 +113,6 @@ addElement('slide', 'truck-slide-3.jpg', 'right-caption', 'Analise sua frota.', 
 addElement('slide', 'truck-slide-1.jpg', 'right-caption', 'Bloqueio imediato.', 'Em caso de roubo ou circunstâncias que podem colocar seu veículo em perigo, baster pedir o bloqueio imediato do veículo.');
 
 // stuffs.css
-require('materialize-css/dist/css/materialize.min.css');
+require('./src/css/materialize.min.css');
 require('./src/fonts/icons/material-icons.css');
 require('./src/css/style.css');
