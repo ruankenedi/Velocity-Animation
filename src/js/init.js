@@ -144,10 +144,6 @@ function isVehicleVisible() {
         topOffset = -25;
         
         $('#left-banner').removeClass('m-tb-16');
-        $('.carousel').Carousel('autoplay', {
-          enabled: true,
-          speed: 7000
-        });  
       }
 
       $('.carousel.carousel-slider').Carousel({
@@ -165,7 +161,13 @@ function isVehicleVisible() {
         onPageChange: null,
         topOffset: topOffset
       });
+
+      $('.carousel').Carousel('autoplay', {
+        enabled: true,
+        speed: 7000
+      });
     });
+
 
     $(window).scroll(() => {
       isFooterVisible();
