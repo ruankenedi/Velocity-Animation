@@ -31,8 +31,7 @@
             _timeout: undefined
           };
           let slided;
-  
-  
+
           // Initialize
           var view = $(this);
           var hasMultipleSlides = view.find('.carousel-item').length > 1;
@@ -40,8 +39,7 @@
           var noWrap = (view.attr('data-no-wrap') || options.noWrap) || !hasMultipleSlides;
           var uniqueNamespace = view.attr('data-namespace') || namespace+i;
           view.attr('data-namespace', uniqueNamespace);
-  
-  
+
           // Options
           var setCarouselHeight = function(imageOnly) {
             var firstSlide = view.find('.carousel-item.active').length ? view.find('.carousel-item.active').first() : view.find('.carousel-item').first();
@@ -80,8 +78,7 @@
               view.find('.carousel-fixed-item').addClass('with-indicators');
             }
           }
-  
-  
+
           // Don't double initialize.
           if (view.hasClass('initialized')) {
             // Recalculate variables
@@ -91,7 +88,6 @@
             view.trigger('carouselNext', [0.000001]);
             return true;
           }
-  
   
           view.addClass('initialized');
           pressed = false;
@@ -127,7 +123,6 @@
           }
           count = images.length;
   
-  
           function setupEvents() {
             if (typeof window.ontouchstart !== 'undefined') {
               view.on('touchstart.carousel', tap);
@@ -146,8 +141,7 @@
             if (e.targetTouches && (e.targetTouches.length >= 1)) {
               return e.targetTouches[0].clientX;
             }
-  
-            // mouse event
+
             return e.clientX;
           }
   
@@ -157,7 +151,6 @@
               return e.targetTouches[0].clientY;
             }
   
-            // mouse event
             return e.clientY;
           }
   
@@ -328,20 +321,11 @@
 
           function click(e) {
             // Disable clicks if carousel was dragged.
-            if (dragged) {
-              // e.preventDefault();
-              // e.stopPropagation();
-              return false;
-  
-            } else if (!options.fullWidth) {
+            if (dragged) return false;
+             else if (!options.fullWidth) {
               var clickedIndex = $(e.target).closest('.carousel-item').index();
               var diff = wrap(center) - clickedIndex;
-  
-              // Disable clicks if carousel was shifted by click
-              if (diff !== 0) {
-                // e.preventDefault();
-                // e.stopPropagation();
-              }
+
               cycleTo(clickedIndex);
             }
           }
@@ -368,7 +352,6 @@
           }
   
           function tap(e) {
-            // Fixes firefox draggable image bug
             if (e.type === 'mousedown' && $(e.target).is('img')) {
               e.preventDefault();
             }
@@ -384,7 +367,7 @@
             clearInterval(ticker);
             ticker = setInterval(track, 100);
           }
-  
+
           function drag(e) {
             var x, delta, deltaY;
             if (pressed) {
@@ -393,32 +376,15 @@
               delta = reference - x;
               deltaY = Math.abs(referenceY - y);
               if (deltaY < 20 && !vertical_dragged) {
-                // If vertical scrolling don't allow dragging.
                 if (delta > 10 || delta < -10) {
                   dragged = true;
                   reference = x;
                   scroll(offset + delta);
                 }
+              } else if (dragged) return false;
   
-              } else if (dragged) {
-                // If dragging don't allow vertical scroll.
-                // e.preventDefault();
-                // e.stopPropagation();
-
-                return false;
-  
-              } else {
-                // Vertical scrolling.
-                vertical_dragged = true;
-              }
+               else vertical_dragged = true;
             }
-  
-            // if (dragged) {
-            //   // If dragging don't allow vertical scroll.
-            //   // e.preventDefault();
-            //   // e.stopPropagation();
-            //   return false;
-            // }
           }
           
           function release(e) {
@@ -428,8 +394,7 @@
             } else {
               return;
             }
-            
-          
+                
             clearInterval(ticker);
             target = offset;
             
@@ -453,11 +418,7 @@
             amplitude = target - offset;
             timestamp = Date.now();
             requestAnimationFrame(autoScroll);
-  
-            // if (dragged) {
-            //   e.preventDefault();
-            //   e.stopPropagation();
-            // }
+ 
             return false;
           }
 
@@ -468,12 +429,10 @@
             
             release();
             requestAnimationFrame(autoScroll);
-            console.log('played')
           }
 
           function autoplay(event, options) {
             release();
-            console.log('played 2')
             if (autoplayStatus._shouldPlay === true && autoplayStatus._timeout === undefined) {
               if (typeof autoplayTimout === 'number') {
                 clearTimeout(autoplayTimout);
@@ -556,84 +515,14 @@
             autoplayStatus = Object.assign(options, autoplayStatus);
             autoplay(event, autoplayStatus);
           });
-  
-          $(this).on('carouselNext', function(e, n, callback) {
-            if (n === undefined) {
-              n = 1;
-            }
-            if (typeof(callback) === "function") {
-              oneTimeCallback = callback;
-            }
-  
-            target = (dim * Math.round(offset / dim)) + (dim * n);
-            if (offset !== target) {
-              amplitude = target - offset;
-              timestamp = Date.now();
-              requestAnimationFrame(autoScroll);
-            }
-          });
-  
-          $(this).on('carouselPrev', function(e, n, callback) {
-            if (n === undefined) {
-              n = 1;
-            }
-            if (typeof(callback) === "function") {
-              oneTimeCallback = callback;
-            }
-  
-            target = (dim * Math.round(offset / dim)) - (dim * n);
-            if (offset !== target) {
-              amplitude = target - offset;
-              timestamp = Date.now();
-              requestAnimationFrame(autoScroll);
-            }
-          });
-  
-          $(this).on('carouselSet', function(e, n, callback) {
-            if (n === undefined) {
-              n = 0;
-            }
-            if (typeof(callback) === "function") {
-              oneTimeCallback = callback;
-            }
-  
-            cycleTo(n);
-          });
 
         });
   
       },
-      autoplay: function({speed, enabled}) {
-        $(this).trigger('autoplay', {
-          speed,
-          enabled
-        });
-      },
-      next : function(n, callback) {
-        $(this).trigger('carouselNext', [n, callback]);
-      },
-      prev : function(n, callback) {
-        $(this).trigger('carouselPrev', [n, callback]);
-      },
-      set : function(n, callback) {
-        $(this).trigger('carouselSet', [n, callback]);
-      },
-      destroy : function() {
-        var uniqueNamespace = $(this).attr('data-namespace');
-        $(this).removeAttr('data-namespace');
-        $(this).removeClass('initialized');
-        $(this).find('.indicators').remove();
-  
-        // Remove event handlers
-        $(this).off('carouselNext carouselPrev carouselSet');
-        $(window).off('resize.carousel-'+uniqueNamespace);
-        if (typeof window.ontouchstart !== 'undefined') {
-          $(this).off('touchstart.carousel touchmove.carousel touchend.carousel');
-        }
-        $(this).off('mousedown.carousel mousemove.carousel mouseup.carousel mouseleave.carousel click.carousel');
+      autoplay: function({ speed, enabled }) {
+        $(this).trigger('autoplay', { speed, enabled });
       }
     };
-  
   
       $.fn.Carousel = function(methodOrOptions) {
         if ( methods[methodOrOptions] ) {
