@@ -1,4 +1,6 @@
 // stuffs.js
+window.onload = renderElement('high');
+
 require('./src/js/initial');
 require('./src/js/jquery.easing.1.4');
 require('./src/js/animation');
@@ -82,8 +84,16 @@ function addElement(element, src, elmClass, title, content) {
   }
 }
 
-function renderElement() {
+function renderElement(priority) {
   const { width } = screen;
+
+  if (priority === 'high') {
+    window.addEventListener('load', () => {
+      renderElement();
+    });
+
+    return;
+  }
 
   if (width <= 500) {
     addElement('img', 'phone-bg.jpg');
@@ -96,11 +106,12 @@ function renderElement() {
     return;
   }
   if (width > 768) {
+    console.log('STARTED')
     addElement('video', 'video.mp4', 'video-background');
   }
 }
 
-renderElement();
+
 $(window).resize(() => {
   renderElement();
 });
