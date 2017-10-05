@@ -24,7 +24,7 @@ module.exports = {
     //   name: 'modules'
     // }),
     // new BundleAnalyzerPlugin(),
-    new UglifyJSPlugin()
+    // new UglifyJSPlugin()
   ],
   output: {
     path: path.resolve(__dirname, 'dist/'),
@@ -43,9 +43,9 @@ module.exports = {
           {
             loader: 'html-loader',
             options: {
-              minimize: true,
-              removeComments: true,
-              collapseWhitespace: true
+              minimize: false,
+              removeComments: false,
+              collapseWhitespace: false
             }
           }
         ]
@@ -58,7 +58,7 @@ module.exports = {
             {
               loader: "css-loader",
               options: {
-                minimize: true 
+                minimize: false 
               }
             }
           ]

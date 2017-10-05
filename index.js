@@ -3,9 +3,11 @@ require('materialize-css/dist/js/materialize.min.js');
 require('./src/js/isOnScreen.js');
 require('./src/js/scrollIt.js');
 require('./src/js/init.js');
+require('./velocity.ui.js');
 
-
+const velAnimation = require('./src/js/animation.js');
 const headerElement = $('.header-background');
+const containerElement = $('#container');
 let parent;
 let caption;
 let headline;
@@ -25,6 +27,35 @@ function addElement(element, src, elmClass, title, content) {
     return;
   }
 
+    if (element === 'animation') {
+        velAnimation.animateDots();
+        console.log($(headerElement).css({
+          'background-image': 'url(' + require('./src/images/' + src) +')',
+          'bottom': '6967',
+          'height': '7375',
+          'left': '-33',
+          'right': '365',
+          'top': '-408',
+          'width': '398'
+        })); 
+        return;//You stoped here
+    }
+
+
+      // function positionAnimation() {
+      //   var a = $('.header-background');
+      //       console.log(a.css({bottom:-156, height: 295, left:-44, right:182, top:-451, width:226}));
+            
+      //       // ({'top': '56', 'right': '414', 'bottom': '56', 'left': '0', 'width': '44'});
+        
+          
+      // }
+
+    
+
+
+    
+
   if (element === 'video') {
     $(headerElement).append($('<video></video>')
       .addClass(elmClass || '')
@@ -37,6 +68,7 @@ function addElement(element, src, elmClass, title, content) {
 
     return;
   }
+  
 
   if (element === 'slide' && elmClass) {
     parent = $('<li></li>').addClass('carousel-item');
@@ -46,13 +78,13 @@ function addElement(element, src, elmClass, title, content) {
     image = $('<div></div>')
       .addClass('slide-mask')
       .css({
-        background: 'linear-gradient(rgba(0,0,0,.74),rgba(0,0,0,.74)),url(' + require('./src/images/' + src) +')',
+        'background': 'linear-gradient(rgba(0,0,0,.74),rgba(0,0,0,.74)),url(' + require('./src/images/' + src) +')',
         'background-position': '50%',
         'background-size': 'cover',
-        width: '100%',
-        height: '100%',
-        position: 'sticky',
-        bottom: '0',
+        'width': '100%',
+        'height': '100%',
+        'position': 'sticky',
+        'bottom': '0',
         'z-index': '-1'
       });
 
@@ -77,7 +109,8 @@ function renderElement() {
   const { width } = screen;
 
   if (width <= 500) {
-    addElement('img', 'phone-bg.jpg');
+    // addElement('img', 'phone-bg.jpg');
+    addElement('animation', 'foto-desktop.jpg');
 
     return;
   }
@@ -95,6 +128,7 @@ renderElement();
 $(window).resize(() => {
   renderElement();
 });
+
 
 addElement('slide', 'main-car-slide.png', 'left-caption', 'Rastreamento online de onde estiver.', 'Saiba onde seus veículos estão em tempo real e tenha todos os detalhes sobre seus veículos de qualquer lugar que estiver com qualquer dispositivo com conectado a internet.');
 addElement('slide', 'car-slide-5.jpg', 'left-caption', 'Cerca eletrônica.', 'Proteja seu veículo usando a cerca eletrônica, uma funcionalidade que permite que você determine um perímetro para seu veículo, assim o sistema irá automaticamente te alertar caso seu veículo não esteja dentro do perímetro delimitado.');
