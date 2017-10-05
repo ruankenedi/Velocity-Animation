@@ -29,7 +29,7 @@
   "scripts": {
     "dev": "webpack",
     "watch": "webpack --watch",
-    "deploy": "surge /home/dev/sattrack-website/dist/ wa.sattrack.surge.sh/"
+    "surge": "surge /home/dev/sattrack-website/dist/ wa.sattrack.surge.sh/"
   },
   "repository": {
     "type": "git",
