@@ -6,9 +6,12 @@ export
 		var	isAndroid = /Android/i.test(navigator.userAgent);
 		var	isIE = document.documentMode;
 
-		$('<div></div>').attr('id', 'container').appendTo($('.header-background')[0]);
-		
+		$('<div></div>').attr('id', 'container-father').append($('<div></div>').attr('id', 'container')).appendTo($('.header-background'));
+				
 		var $container = $("#container");
+		var $containerFather = $("#container-father");
+		$($containerFather).append($($container));
+
 		for (var i = 0; i < 25; i++) {
 			$container.append($('<div></div>').addClass('dot').attr('id', 'dot'+i).css({'width': '226px','height': '295px','position': 'absolute','background-image': 'url('+ require('../images/icone_Sat.png') +')'}));
 		}
@@ -228,5 +231,6 @@ export
 		$.Velocity.RunSequence(sequence7);
 		$.Velocity.RunSequence(sequence8);
 		$.Velocity.RunSequence(sequence9);	
-		return console.log($container);
+		return  console.log($containerFather);
+			  
 	}

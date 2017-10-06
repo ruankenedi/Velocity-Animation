@@ -31,31 +31,27 @@ function addElement(element, src, elmClass, title, content) {
         velAnimation.animateDots();
         console.log($(headerElement).css({
           'background-image': 'url(' + require('./src/images/' + src) +')',
-          'bottom': '6967',
-          'height': '7375',
-          'left': '-33',
-          'right': '365',
-          'top': '-408',
-          'width': '398'
+          'background-position': '2% 80%'
+          // 'bottom': '6906',
+          // 'height': '7375', 
+          // 'left': '-29', 
+          // 'right': '369', 
+          // 'top': '-469', 
+          // 'width': '398'
+        }));
+
+        console.log($(containerElement).css({
+          'bottom': '6906',
+          'height': '7375', 
+          'left': '-29', 
+          'right': '369', 
+          'top': '-469', 
+          'width': '398',
+          'z-index': '5000000'
         })); 
-        return;//You stoped here
+        return;
     }
-
-
-      // function positionAnimation() {
-      //   var a = $('.header-background');
-      //       console.log(a.css({bottom:-156, height: 295, left:-44, right:182, top:-451, width:226}));
-            
-      //       // ({'top': '56', 'right': '414', 'bottom': '56', 'left': '0', 'width': '44'});
-        
-          
-      // }
-
     
-
-
-    
-
   if (element === 'video') {
     $(headerElement).append($('<video></video>')
       .addClass(elmClass || '')
@@ -69,7 +65,6 @@ function addElement(element, src, elmClass, title, content) {
     return;
   }
   
-
   if (element === 'slide' && elmClass) {
     parent = $('<li></li>').addClass('carousel-item');
     caption = $('<div></div>').addClass(`regular-caption ${elmClass}`);
