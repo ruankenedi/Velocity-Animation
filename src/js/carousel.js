@@ -15,6 +15,7 @@
         };
         options = $.extend(defaults, options);
         var namespace = Materialize.objectSelectorString($(this));
+        var tweenedOpacity, zTranslation, y;
   
         return this.each(function(i) {
   
@@ -24,8 +25,13 @@
           var $indicators = $('<ul class="indicators"></ul>');
           var scrollingTimeout = null;
           var oneTimeCallback = null;
-  
-  
+          let autoplayTimout;
+          let autoplayStatus = {
+            _shouldPlay: true,
+            _timeout: undefined
+          };
+          let slided;
+
           // Initialize
           var view = $(this);
           var hasMultipleSlides = view.find('.carousel-item').length > 1;
@@ -33,8 +39,6 @@
           var noWrap = (view.attr('data-no-wrap') || options.noWrap) || !hasMultipleSlides;
           var uniqueNamespace = view.attr('data-namespace') || namespace+i;
           view.attr('data-namespace', uniqueNamespace);
-  
-  
           // Options
           var setCarouselHeight = function(imageOnly) {
             var firstSlide = view.find('.carousel-item.active').length ? view.find('.carousel-item.active').first() : view.find('.carousel-item').first();
@@ -73,8 +77,6 @@
               view.find('.carousel-fixed-item').addClass('with-indicators');
             }
           }
-  
-  
           // Don't double initialize.
           if (view.hasClass('initialized')) {
             // Recalculate variables
@@ -84,7 +86,6 @@
             view.trigger('carouselNext', [0.000001]);
             return true;
           }
-  
   
           view.addClass('initialized');
           pressed = false;
@@ -120,7 +121,6 @@
           }
           count = images.length;
   
-  
           function setupEvents() {
             if (typeof window.ontouchstart !== 'undefined') {
               view.on('touchstart.carousel', tap);
@@ -139,8 +139,6 @@
             if (e.targetTouches && (e.targetTouches.length >= 1)) {
               return e.targetTouches[0].clientX;
             }
-  
-            // mouse event
             return e.clientX;
           }
   
@@ -150,7 +148,6 @@
               return e.targetTouches[0].clientY;
             }
   
-            // mouse event
             return e.clientY;
           }
   
@@ -175,7 +172,6 @@
             // Start actual scroll
             var i, half, delta, dir, tween, el, alignment, xTranslation;
             var lastCenter = center;
-  
             offset = (typeof x === 'number') ? x : offset;
             center = Math.floor((offset + dim / 2) / dim);
             delta = offset - center * dim;
@@ -184,8 +180,8 @@
             half = count >> 1;
   
             if (!options.fullWidth) {
-              alignment = 'translateX(' + (view[0].clientWidth - item_width) / 2 + 'px) ';
-              alignment += 'translateY(' + (view[0].clientHeight - item_height) / 2 + 'px)';
+              alignment = 'translateX(' + (view[0].clientWidth - item_width) / 5 + 'px) ';
+              alignment += 'translateY(' + (view[0].clientHeight - item_height) / 5 + 'px)';
             } else {
               alignment = 'translateX(0)';
             }
@@ -234,14 +230,13 @@
               if (!noWrap || center + i < count) {
                 el = images[wrap(center + i)];
                 el.style[xform] = alignment +
-                  ' translateX(' + (options.shift + (dim * i - delta) / 2) + 'px)' +
-                  ' translateZ(' + zTranslation + 'px)';
+                ' translateX(' + (options.shift + (dim * i - delta) / 2) + 'px)' +
+                ' translateZ(' + zTranslation + 'px)';
                 el.style.zIndex = -i;
                 el.style.opacity = tweenedOpacity;
                 el.style.display = 'block';
               }
-  
-  
+              
               // left side
               if (options.fullWidth) {
                 zTranslation = options.dist;
@@ -305,36 +300,29 @@
           }
   
           function autoScroll() {
-            var elapsed, delta;
+            var elapsed, delta, x;
   
             if (amplitude) {
               elapsed = Date.now() - timestamp;
               delta = amplitude * Math.exp(-elapsed / options.duration);
-              if (delta > 2 || delta < -2) {
-                  scroll(target - delta);
-                  requestAnimationFrame(autoScroll);
+              x = target - delta;
+              if (delta > 7 || delta < -7) {
+                release();
+                scroll(target - delta);
+                requestAnimationFrame(autoScroll);
               } else {
-                  scroll(target);
+                scroll(target);
               }
             }
           }
-  
+
           function click(e) {
             // Disable clicks if carousel was dragged.
-            if (dragged) {
-              e.preventDefault();
-              e.stopPropagation();
-              return false;
-  
-            } else if (!options.fullWidth) {
+            if (dragged) return false;
+             else if (!options.fullWidth) {
               var clickedIndex = $(e.target).closest('.carousel-item').index();
               var diff = wrap(center) - clickedIndex;
-  
-              // Disable clicks if carousel was shifted by click
-              if (diff !== 0) {
-                e.preventDefault();
-                e.stopPropagation();
-              }
+
               cycleTo(clickedIndex);
             }
           }
@@ -355,14 +343,12 @@
             // Call prev or next accordingly.
             if (diff < 0) {
               view.trigger('carouselNext', [Math.abs(diff)]);
-  
             } else if (diff > 0) {
               view.trigger('carouselPrev', [diff]);
             }
           }
   
           function tap(e) {
-            // Fixes firefox draggable image bug
             if (e.type === 'mousedown' && $(e.target).is('img')) {
               e.preventDefault();
             }
@@ -378,7 +364,6 @@
             clearInterval(ticker);
             ticker = setInterval(track, 100);
           }
-  
           function drag(e) {
             var x, delta, deltaY;
             if (pressed) {
@@ -386,49 +371,38 @@
               y = ypos(e);
               delta = reference - x;
               deltaY = Math.abs(referenceY - y);
-              if (deltaY < 30 && !vertical_dragged) {
-                // If vertical scrolling don't allow dragging.
-                if (delta > 2 || delta < -2) {
+              if (deltaY < 20 && !vertical_dragged) {
+                if (delta > 10 || delta < -10) {
                   dragged = true;
                   reference = x;
                   scroll(offset + delta);
                 }
+              } else if (dragged) return false;
   
-              } else if (dragged) {
-                // If dragging don't allow vertical scroll.
-                e.preventDefault();
-                e.stopPropagation();
-                return false;
-  
-              } else {
-                // Vertical scrolling.
-                vertical_dragged = true;
-              }
-            }
-  
-            if (dragged) {
-              // If dragging don't allow vertical scroll.
-              e.preventDefault();
-              e.stopPropagation();
-              return false;
+               else vertical_dragged = true;
             }
           }
-  
+          
           function release(e) {
+          
             if (pressed) {
               pressed = false;
             } else {
               return;
             }
-  
+                
             clearInterval(ticker);
             target = offset;
+            
             if (velocity > 10 || velocity < -10) {
               amplitude = 0.9 * velocity;
               target = offset + amplitude;
             }
+            
             target = Math.round(target / dim) * dim;
-  
+
+            if (target < 0 || target > 0) $(this).trigger('drag');
+            
             // No wrap of items.
             if (noWrap) {
               if (target >= dim * (count - 1)) {
@@ -440,14 +414,55 @@
             amplitude = target - offset;
             timestamp = Date.now();
             requestAnimationFrame(autoScroll);
-  
-            if (dragged) {
-              e.preventDefault();
-              e.stopPropagation();
-            }
+ 
             return false;
           }
+
+          function play() {
+            target = (dim * Math.round(offset / dim)) + (dim * 1);
+            amplitude = target - offset;
+            timestamp = Date.now();
+            
+            release();
+            requestAnimationFrame(autoScroll);
+          }
+
+          function autoplay(event, options) {
+            release();
+            if (autoplayStatus._shouldPlay === true && autoplayStatus._timeout === undefined) {
+              if (typeof autoplayTimout === 'number') {
+                clearTimeout(autoplayTimout);
+                autoplayTimout = undefined;
+                
+                setTimeout(() => {
+                  autoplay(event, options);
+                }, 500);
+                requestAnimationFrame(autoScroll);
+                release();
   
+                return;
+              }
+              
+              if (options.enabled === true && autoplayTimout === undefined) {
+                autoplayTimout = setTimeout(function() {
+                  play();
+                
+                  setTimeout(() => {
+                    autoplay(event, options)
+                  }, 500);
+                }, options.speed);
+                release();
+                requestAnimationFrame(autoScroll);
+                
+                return;
+              }
+            }
+            
+            setTimeout(() => {
+              autoplay(event, options)
+            }, 500);
+          }
+
           xform = 'transform';
           ['webkit', 'Moz', 'O', 'ms'].every(function (prefix) {
             var e = prefix + 'Transform';
@@ -477,7 +492,26 @@
   
           setupEvents();
           scroll(offset);
-  
+
+          $(this).on('dragLeft', function(event) {});
+
+          $(this).on('dragRight', function(event) {});
+
+          $(this).on('drag', function() {
+            autoplayStatus._shouldPlay = false;
+            autoplay(event, autoplayStatus);
+            autoplayStatus._timeout = setTimeout(() => {
+              autoplayStatus._shouldPlay = true;
+              clearTimeout(autoplayStatus._timeout);
+              autoplayStatus._timeout = undefined;
+            }, 100);
+          });
+
+          $(this).on('autoplay', function(event, options) {
+            autoplayStatus = Object.assign(options, autoplayStatus);
+            autoplay(event, autoplayStatus);
+          });
+
           $(this).on('carouselNext', function(e, n, callback) {
             if (n === undefined) {
               n = 1;
@@ -509,50 +543,15 @@
               requestAnimationFrame(autoScroll);
             }
           });
-  
-          $(this).on('carouselSet', function(e, n, callback) {
-            if (n === undefined) {
-              n = 0;
-            }
-            if (typeof(callback) === "function") {
-              oneTimeCallback = callback;
-            }
-  
-            cycleTo(n);
-          });
-  
         });
   
-  
-  
       },
-      next : function(n, callback) {
-        $(this).trigger('carouselNext', [n, callback]);
-      },
-      prev : function(n, callback) {
-        $(this).trigger('carouselPrev', [n, callback]);
-      },
-      set : function(n, callback) {
-        $(this).trigger('carouselSet', [n, callback]);
-      },
-      destroy : function() {
-        var uniqueNamespace = $(this).attr('data-namespace');
-        $(this).removeAttr('data-namespace');
-        $(this).removeClass('initialized');
-        $(this).find('.indicators').remove();
-  
-        // Remove event handlers
-        $(this).off('carouselNext carouselPrev carouselSet');
-        $(window).off('resize.carousel-'+uniqueNamespace);
-        if (typeof window.ontouchstart !== 'undefined') {
-          $(this).off('touchstart.carousel touchmove.carousel touchend.carousel');
-        }
-        $(this).off('mousedown.carousel mousemove.carousel mouseup.carousel mouseleave.carousel click.carousel');
+      autoplay: function({ speed, enabled }) {
+        $(this).trigger('autoplay', { speed, enabled });
       }
     };
   
-  
-      $.fn.daniel = function(methodOrOptions) {
+      $.fn.Carousel = function(methodOrOptions) {
         if ( methods[methodOrOptions] ) {
           return methods[ methodOrOptions ].apply( this, Array.prototype.slice.call( arguments, 1 ));
         } else if ( typeof methodOrOptions === 'object' || ! methodOrOptions ) {

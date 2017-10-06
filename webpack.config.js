@@ -18,6 +18,12 @@ module.exports = {
       favicon: './src/images/favicon.png',
       hash: true,
     }),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: "jquery",
+      'window.jQuery': 'jquery',
+      'window.$': 'jquery'
+    }),
     new ExtractTextPlugin("styles.css"),
     // new webpack.optimize.CommonsChunkPlugin({
     //   name: 'modules'

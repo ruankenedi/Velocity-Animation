@@ -6,7 +6,6 @@
   "browserslist": ["defaults", "not ie < 11"],
   "dependencies": {
     "jquery": "^3.2.1",
-    "materialize-css": "^0.100.2",
     "uglify-es": "github:mishoo/UglifyJS2#harmony"
   },
   "devDependencies": {
@@ -30,8 +29,9 @@
     "webpack-bundle-analyzer": "^2.9.0"
   },
   "scripts": {
-    "build": "webpack",
-    "watch": "webpack --watch"
+    "dev": "webpack",
+    "watch": "webpack --watch",
+    "surge": "surge /home/dev/sattrack-website/dist/ wa.sattrack.surge.sh/"
   },
   "repository": {
     "type": "git",

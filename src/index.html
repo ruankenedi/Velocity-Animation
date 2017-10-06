@@ -19,7 +19,7 @@
           <li data-scroll-nav="2"><a>Para Empresas</a></li>
           <li data-scroll-nav="3" class="about"><a>Quem Somos</a></li>
           <li data-scroll-nav="4" class="contact"><a onclick="$zopim.livechat.window.toggle()">Contato</a></li>
-          <li><a class="teal accent-4 btn waves-effect waves-light white-text" href="http://sattrack.com.br/app/">Localizar veículo</a></li>
+          <li class="find-your-car"><a class="teal accent-4 btn waves-effect waves-light white-text">Localizar veículo</a></li>
           <li><a class="blue darken-4 btn waves-effect waves-light white-text ml-4-neg" href="http://telemetria.sattrack.com.br/">Telemetria</a></li>
         </ul>
         <ul class="side-nav" id="mobile">
@@ -28,7 +28,7 @@
           <li data-scroll-nav="2"><a>Para Empresas</a></li>
           <li data-scroll-nav="3" class="about"><a>Quem Somos</a></li>
           <li data-scroll-nav="4" class="contact"><a onclick="$zopim.livechat.window.toggle()">Contato</a></li>
-          <li class="mobile-btn teal accent-4 btn waves-effect waves-light"><a class="white-text" href="http://sattrack.com.br/app/">Localizar veículo</a></li>
+          <li class="find-your-car mobile-btn teal accent-4 btn waves-effect waves-light"><a class="white-text">Localizar veículo</a></li>
           <li class="mobile-btn blue darken-4 btn waves-effect waves-light"><a class="white-text" href="http://telemetria.sattrack.com.br/">Telemetria</a></li>
         </ul>
       </div>
@@ -43,7 +43,7 @@
           <h5 class="header col s12 light">Oferecemos soluções incríveis de rastreamento e logística, confira!</h5>
         </div>
         <div class="row center">
-          <a href="http://sattrack.com.br/app/" id="download-button" class="btn-large waves-effect waves-light teal accent-4 white-text">Localizar meu veículo</a>
+          <a id="download-button" class="find-your-car btn-large waves-effect waves-light teal accent-4 white-text">Localizar meu veículo</a>
           <a href="http://telemetria.sattrack.com.br/" class="btn-large z-depth-1 waves-effect waves-light blue darken-4 mt-12">Telemetria</a>
         </div>
       </div>
@@ -63,22 +63,19 @@
         </div>
       </div>
       <div class="left-banner-slider mob-mt-30 clip-path-left">
-        <div class="valign-wrapper">
-          <section class="full-width-slide slider section">
-            <ul class="slides slide-wrapper left-slide white-text">
-                 
-            </ul>
+        <div id="left-banner" class="full-width-slide carousel carousel-slider valign-wrapper m-tb-16">
+          <section class="section">
+            <ul class="slide-wrapper left-slide white-text"></ul>
           </section>
         </div>
       </div>
     </div>
 
-    <div data-scroll-index="2" class="_container flex">
-      <div id="for-business" class="right-banner-slider">
-        <div class="valign-wrapper clip-path-right">
-          <section class="full-width-slide slider section">
-            <ul class="slides slide-wrapper right-slide white-text">            
-            </ul>
+    <div class="_container flex">
+      <div id="for-business" data-scroll-index="2" class="right-banner-slider">
+        <div id="right-banner" class="full-width-slide carousel carousel-slider valign-wrapper m-tb-16 clip-path-right">
+          <section class="section">
+            <ul class="slide-wrapper right-slide white-text"></ul>
           </section>
         </div>
       </div>
